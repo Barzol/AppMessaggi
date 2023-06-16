@@ -16,7 +16,8 @@ export default function Sidebar(loggedUser) {
             </div>
             <div className="sidebar-searc">
                 <div className="sidebar_search_container">
-                    <input type="text" placeholder="cerca"></input>
+                    {/*Aggiungere icona lente*/}
+                    <input type="text" placeholder="cerca o inizia una nuova chat"></input>
                 </div>
             </div>
             <div className="sidebar_chat">

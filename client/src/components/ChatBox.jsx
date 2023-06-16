@@ -1,21 +1,44 @@
 import React from 'react'
 import Sidebar from "./Sidebar";
 import Message from "./Message";
+import "./ChatBox.css";
 
 export default function ChatBox(data){
     return(
         <div className="chat">
             <div className="chat_header">
-                <h2>header</h2>
+                header {/*Avatar*/}
+                <div className="chat_header_info">
+                    <h3>Nome Chat</h3>
+                    <p>Messaggio</p>
+                </div>
+                <div className="chat_header_right">
+                    {/*Icone*/}
+                </div>
             </div>
             <div className="chat_body">
-                <h2>body</h2>
+                {/*Messaggi*/}
+                <p className="chat_message">
+                    <span className="chat_name">MY NAME</span>
+                    Message
+                    <span className="chat_timestamp">{new Date().toUTCString()}</span>
+                </p>
+                <p className="chat_message chat_receiver">
+                    <span className="chat_name">MY NAME</span>
+                    Message
+                    <span className="chat_timestamp">{new Date().toUTCString()}</span>
+                </p>
+            </div>
+            <div className="chat_footer">
+                {/*Icona per l'emoticon*/}
+                <form>
+                    <input placeholder="Scrivi un messaggio..." type="text" />
+                    <button type="submit">Invia</button>
+                </form>
             </div>
         </div>
     )
 }
-
-//MALEDETTO FERRARA
 
 
 /*

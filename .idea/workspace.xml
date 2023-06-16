@@ -5,7 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c557ad66-9af8-408a-b8c1-6f01ed9f1f1c" name="Changes" comment="Merge remote-tracking branch 'origin/main' into default">
+      <change afterPath="$PROJECT_DIR$/client/src/components/ChatBox.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/ChatBox.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ChatBox.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Sidebar.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Sidebar.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Sidebar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Sidebar.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,7 +85,21 @@
       <option name="project" value="LOCAL" />
       <updated>1686750938808</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Merge remote-tracking branch 'origin/main' into default">
+      <created>1686937776882</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1686937776883</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Merge remote-tracking branch 'origin/main' into default">
+      <created>1686937817124</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1686937817124</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
