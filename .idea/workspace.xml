@@ -5,16 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c557ad66-9af8-408a-b8c1-6f01ed9f1f1c" name="Changes" comment="Merge remote-tracking branch 'origin/main' into default">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Sidebar.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Sidebar.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Sidebar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Sidebar.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/SidebarChat.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/SidebarChat.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/SidebarChat.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/SidebarChat.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/ChatBox.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ChatBox.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +14,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="ProjectId" id="2RCP37yUYn9VN8dyyBiPdRaoTax" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
