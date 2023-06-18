@@ -6,23 +6,28 @@ import {ToastContainer, toast} from 'react-toastify'
 import "react-toastify/dist/ReactToastify.css"
 import axios from "axios";
 
-export default function Register(){
+export default function Login(){
     const [info, setInfo] = useState({
         username : "",
-        password : "",
-        confirmPassword : ""
-
+        password : ""
     })
+    const window = {
+        position: "bottom-right",
+        autoclose: 6000,
+        draggable: true,
+        theme: "dark"
+    }
+
 
     const handleSubmit = async (event) => {
         event.preventDefault()
         if(handleVerify()) {
-            const {username, password, confirmPassword} = info
+            const {username, password} = info
             const {data} = await axios.post('auth/login', {
-                username, password, confirmPassword
+                username, password
             })
             if(data.status === false) {
-                toast.error(fata.message, toastOptions)
+                toast.error(data.message, window)
             }
             if(data.status === true) {
                 localStorage.setItem('chat-app-user', JSON.stringify(data.user))
@@ -37,18 +42,16 @@ export default function Register(){
         setInfo({...info, [event.target.name] : event.target.value})
     }
 
-    const window = {
-        position: "bottom-right",
-        autoclose: 6000,
-        draggable: true,
-        theme: "dark"
-    }
+
     const handleVerify = (event) => {
-        const { username, password, confirmPassword} = info
-        if(password !== confirmPassword){
-            toast.error('Le password non coincidono', window )
+        const { username, password} = info
+        if(password === ""){
+            toast.error('Password richiesta', window )
             return false
-        } else  {
+        } else  if(username===""){
+            toast.error('Username richiesto', window )
+            return false
+        } else {
             return true
         }
 
@@ -71,6 +74,9 @@ export default function Register(){
                         onChange={e=> handleChange(e)}
                     />
                     <button type="submit"/>Login
+                    <span>
+                        Non possiedi un account? <Link to="/register">Registrati</Link>
+                    </span>
                 </form>
 
             </div>

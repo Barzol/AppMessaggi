@@ -27,6 +27,24 @@ exports.register = async (req, res) => {
 }
 
 exports.login = async (req,res) => {
+    try{
+        const{username, password } = req.body
+        const userCheck = await User.findOne({ username })
+        if (userCheck)
+            return res.json({message: "Username già in uso", status: false})
+        const hashPass = await bcrypt.hash(password, 10)
+
+        if(!user) throw "Username e Password errati"
+
+        return res.json({
+            message: "Utente loggato con successo!",
+            token
+        })
+    }catch (error){
+        console.log(error)
+        res.status(500).json({message : error})
+    }
+
     const {username, password} = req.body
     const user = await User.findOne({password: sha256(password + process.env.SALT)})
 
@@ -34,10 +52,7 @@ exports.login = async (req,res) => {
 
     const token = jwt.sign({id: user.id}, process.env.SECRET)
 
-    res.json({
-        message: "Utente loggato con successo!",
-        token
-    })
+
 
 }
 

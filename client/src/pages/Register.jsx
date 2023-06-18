@@ -13,10 +13,9 @@ export default function Register(){
         confirmPassword : ""
     })
 
-    const toastOptions = {
+    const window = {
         position: "bottom-right",
-        autoclose: 8000,
-        pauseOnHover: true,
+        autoclose: 6000,
         draggable: true,
         theme: "dark"
     }
@@ -29,7 +28,7 @@ export default function Register(){
                 username, password, confirmPassword
             })
             if(data.status === false) {
-                toast.error(data.message, toastOptions)
+                toast.error(data.message, window)
             }
             if(data.status === true) {
                 localStorage.setItem('chat-app-user', JSON.stringify(data.user))
@@ -44,12 +43,7 @@ export default function Register(){
         setInfo({...info, [event.target.name] : event.target.value})
     }
 
-    const window = {
-        position: "bottom-right",
-        autoclose: 6000,
-        draggable: true,
-        theme: "dark"
-    }
+
     const handleVerify = (event) => {
         const { username, password, confirmPassword} = info
         if(password !== confirmPassword){
@@ -101,6 +95,9 @@ export default function Register(){
                         onChange={e=> handleChange(e)}
                     />
                     <button type="submit"/>Registrati
+                    <span>
+                        Possiedi un account? <Link to="/">Login</Link>
+                    </span>
                 </form>
             </div>
             <ToastContainer />
