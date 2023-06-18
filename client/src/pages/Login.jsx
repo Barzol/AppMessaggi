@@ -18,7 +18,7 @@ export default function Register(){
         event.preventDefault()
         if(handleVerify()) {
             const {username, password, confirmPassword} = info
-            const {data} = await axios.post('auth/register', {
+            const {data} = await axios.post('auth/login', {
                 username, password, confirmPassword
             })
             if(data.status === false) {
@@ -48,10 +48,10 @@ export default function Register(){
         if(password !== confirmPassword){
             toast.error('Le password non coincidono', window )
             return false
-        } else if (username.length < 2) {
-            toast.error('Username deve essere più lungo di 3 caratteri', window)
+        } else  {
+            return true
         }
-        return true
+
     }
 
     return (
@@ -72,37 +72,13 @@ export default function Register(){
                     />
                     <button type="submit"/>Login
                 </form>
-            </div>
-            <div id='FormContainer'>
-                <form id='form' onSubmit={(event) => handleSubmit(event)}>
-                    <input id='form'
-                        type='text'
-                        placeholder='Username'
-                        name='username'
-                        onChange={e=> handleChange(e)}
-                    />
-                    <input
-                        type='password'
-                        placeholder='Password'
-                        name='password'
-                        onChange={e=> handleChange(e)}
-                    />
-                    <input
-                        type='password'
-                        placeholder='Confirm Password'
-                        name='confirmPassword'
-                        onChange={e=> handleChange(e)}
-                    />
-                    <button type="submit"/>Registrati
-                </form>
+
             </div>
             <ToastContainer />
-            </>
+        </>
     )
 
 }
-
-
 
 
 

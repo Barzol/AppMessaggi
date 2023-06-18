@@ -11,7 +11,6 @@ export default function App(){
         <div className="app_body">
           <Sidebar />
           <ChatBox />
-          <h2>Prova React</h2>
         </div>
       </div>
   );
