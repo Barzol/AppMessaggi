@@ -5,11 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c557ad66-9af8-408a-b8c1-6f01ed9f1f1c" name="Changes" comment="Merge remote-tracking branch 'origin/main' into default">
-      <change afterPath="$PROJECT_DIR$/client/src/components/ChatBox.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/public/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/public/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/public/logo192.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/public/logo512.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/public/manifest.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/public/robots.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/ChatBox.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ChatBox.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Sidebar.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Sidebar.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Sidebar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Sidebar.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,22 +32,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;inlay.hints&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\WebStorm 2023.1.2\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/david/AppMessaggi/client",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "inlay.hints",
+    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2023.1.2\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task id="LOCAL-00001" summary="Ce la facciamo?">
@@ -77,6 +82,8 @@
       <workItem from="1686761499520" duration="113000" />
       <workItem from="1686843215730" duration="4267000" />
       <workItem from="1686932640599" duration="3164000" />
+      <workItem from="1687093433535" duration="1149000" />
+      <workItem from="1687094619164" duration="869000" />
     </task>
     <task id="LOCAL-00004" summary="Merge remote-tracking branch 'origin/main' into default">
       <created>1686750938808</created>
