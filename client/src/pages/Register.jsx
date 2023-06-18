@@ -11,8 +11,15 @@ export default function Register(){
         username : "",
         password : "",
         confirmPassword : ""
-
     })
+
+    const toastOptions = {
+        position: "bottom-right",
+        autoclose: 8000,
+        pauseOnHover: true,
+        draggable: true,
+        theme: "dark"
+    }
 
     const handleSubmit = async (event) => {
         event.preventDefault()
@@ -22,7 +29,7 @@ export default function Register(){
                 username, password, confirmPassword
             })
             if(data.status === false) {
-                toast.error(fata.message, toastOptions)
+                toast.error(data.message, toastOptions)
             }
             if(data.status === true) {
                 localStorage.setItem('chat-app-user', JSON.stringify(data.user))
