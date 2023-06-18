@@ -6,13 +6,14 @@ import Message from "./components/Message.jsx";
 import Sidebar from "./components/Sidebar.jsx";
 
 export default function App(){
-    return(
-        <div className="app">
-            <div className="app_body">
-                <Sidebar />
-                <ChatBox />
-                <h2>Prova React</h2>
-            </div>
+  return(
+      <div className="app">
+        <div className="app_body">
+          <Sidebar />
+          <ChatBox />
+          <h2>Prova React</h2>
         </div>
-    );
+      </div>
+  );
 }
+

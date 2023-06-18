@@ -1,5 +1,4 @@
 import React from 'react'
-import Button from '@mui/material/Button'
 import "./Sidebar.css"
 import SidebarChat from "./SidebarChat.jsx";
 
