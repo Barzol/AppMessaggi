@@ -1,6 +1,4 @@
 import React from 'react'
-import Sidebar from "./Sidebar";
-import Message from "./Message";
 import "./ChatBox.css";
 
 export default function ChatBox(data){
