@@ -46,7 +46,7 @@ body {
     align-items: center;
 }
 
-input {
+#input {
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
@@ -54,7 +54,7 @@ input {
     border-radius: 5px;
 }
 
-button {
+#button {
     padding: 10px 20px;
     background-color: orangered;
     color: white;
