@@ -5,7 +5,7 @@
 .app {
   display: grid;
   place-items: center;
-  height: 100vh;
+  height: 98vh;
   background-color: #FBD8B8;
 }
 
@@ -13,7 +13,7 @@
 .app_body{
   display: flex;
   background-color: lightgrey;
-  height: 90vh;
-  width: 90vh;
+  height: 95vh;
+  width: 98vh;
   box-shadow: 10px 10px 10px -2px #3D3D3D;
 }

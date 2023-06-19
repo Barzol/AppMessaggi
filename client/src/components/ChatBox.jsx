@@ -1,18 +1,29 @@
 import React from 'react'
 import "./ChatBox.css";
+import {Avatar, Icon, IconButton} from "@mui/material";
+import SearchIcon from "@mui/icons-material/Search";
+import {AttachFile, EmojiEmotions, MoreVert, Send} from "@mui/icons-material";
 //import SendIcon from '@mui/icons-material/Send';
 
 export default function ChatBox(data){
     return(
         <div className="chat">
             <div className="chat_header">
-                Avatar {/*Avatar*/}
+                <Avatar />
                 <div className="chat_header_info">
                     <h3>Nome Chat</h3>
                     <p>Messaggio</p>
                 </div>
                 <div className="chat_header_right">
-                    {/*Icone*/}
+                    <IconButton>
+                        <SearchIcon />
+                    </IconButton>
+                    <IconButton>
+                        <AttachFile />
+                    </IconButton>
+                    <IconButton>
+                        <MoreVert />
+                    </IconButton>
                 </div>
             </div>
             <div className="chat_body">
@@ -80,10 +91,16 @@ export default function ChatBox(data){
 
             </div>
             <div className="chat_footer">
-                {/*Icona per l'emoticon*/}
+                <IconButton>
+                    <EmojiEmotions />
+                </IconButton>
                 <form>
                     <input placeholder="Scrivi un messaggio..." type="text" />
-                    <button type="submit">Invia</button>
+                    <button type="submit">
+                        <IconButton>
+                            <Send />
+                        </IconButton>
+                    </button>
                 </form>
             </div>
         </div>

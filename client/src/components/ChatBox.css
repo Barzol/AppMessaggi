@@ -9,7 +9,7 @@
     padding: 20px;
     align-items: center;
     border-bottom: 1px solid lightgrey;
-    background-color: white;
+    background-color: #f6f6f6;
 }
 
 .chat_header_info{
@@ -31,7 +31,6 @@
 .chat_body{
     flex: 1;
     padding: 30px;
-
     /*prova overflow*/
     overflow: auto;
     scrollbar-width: thin;
@@ -75,12 +74,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 60px;
+    height: 54px;
     border-top: 1px solid lightgrey;
     background-color: #f3f3f3;
 }
 
 .chat_footer > form {
+    margin-top: 7px;
     display: flex;
     flex: 1;
     padding: 5px;
@@ -88,8 +88,9 @@
 
 .chat_footer > form > input{
     flex: 1;
-    border-radius: 20px;
-    padding: 12px;
+    margin-right: 7px;
+    border-radius: 30px;
+    padding: 10px;
     border: none;
     outline-width: 0;
 }
@@ -97,9 +98,8 @@
 .chat_footer > form > input > button{
     display: none;
 }
-/*
-.chat_footer > l'icona da inserire{
+
+.chat_footer > .MuiSvgIcon-root{
     padding: 10px;
     color: gray;
 }
-*/
