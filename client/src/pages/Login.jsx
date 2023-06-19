@@ -61,21 +61,24 @@ export default function Login(){
         <>
             <div id='FormContainer'>
                 <form id='form' onSubmit={(event) => handleSubmit(event)}>
-                    <input id='form'
+                    <input id='usernameLogin'
                            type='text'
                            placeholder='Username'
                            name='username'
                            onChange={e=> handleChange(e)}
                     />
-                    <input
-                        type='password'
-                        placeholder='Password'
-                        name='password'
-                        onChange={e=> handleChange(e)}
+                    <input id='passwordLogin'
+                           type='password'
+                           placeholder='Password'
+                           name='password'
+                           onChange={e=> handleChange(e)}
                     />
-                    <button type="submit"/>Login
+                    <button type="submit">LOGIN</button>
                     <span>
-                        Non possiedi un account? <Link to="/register">Registrati</Link>
+                        Non possiedi un account?
+                        <Link to="/register">
+                            <button>REGISTRATI</button>
+                        </Link>
                     </span>
                 </form>
 

@@ -59,45 +59,20 @@ export default function Register(){
         <>
             <div id='FormContainer'>
                 <form id='form' onSubmit={(event) => handleSubmit(event)}>
-                    <input id='form'
+                    <input id='usernameRegister'
                            type='text'
                            placeholder='Username'
                            name='username'
                            onChange={e=> handleChange(e)}
                     />
                     <input
+                        id='passwordRegister'
                         type='password'
                         placeholder='Password'
                         name='password'
                         onChange={e=> handleChange(e)}
                     />
-                    <button type="submit"/>Login
-                </form>
-            </div>
-            <div id='FormContainer'>
-                <form id='form' onSubmit={(event) => handleSubmit(event)}>
-                    <input id='form'
-                        type='text'
-                        placeholder='Username'
-                        name='username'
-                        onChange={e=> handleChange(e)}
-                    />
-                    <input
-                        type='password'
-                        placeholder='Password'
-                        name='password'
-                        onChange={e=> handleChange(e)}
-                    />
-                    <input
-                        type='password'
-                        placeholder='Confirm Password'
-                        name='confirmPassword'
-                        onChange={e=> handleChange(e)}
-                    />
-                    <button type="submit"/>Registrati
-                    <span>
-                        Possiedi un account? <Link to="/">Login</Link>
-                    </span>
+                    <button type="submit">LOGIN</button>
                 </form>
             </div>
             <ToastContainer />

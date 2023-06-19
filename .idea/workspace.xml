@@ -5,9 +5,40 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c557ad66-9af8-408a-b8c1-6f01ed9f1f1c" name="Changes" comment="Backend modificato : da completare">
+      <change beforePath="$PROJECT_DIR$/.idea/AppMessaggi.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/AppMessaggi.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/client/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/client/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/public/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/public/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/public/robots.txt" beforeDir="false" afterPath="$PROJECT_DIR$/client/public/robots.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/ChatBox.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ChatBox.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/ChatBox.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ChatBox.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/ChatContainer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ChatContainer.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Message.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Message.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Sidebar.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Sidebar.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Sidebar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Sidebar.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/SidebarChat.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/SidebarChat.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/SidebarChat.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/SidebarChat.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/pages/Chat.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/Chat.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/pages/Login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/Login.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/pages/Register.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/Register.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/pages/Register.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/Register.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/controllers/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/auth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/models/chats.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/models/chats.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/models/messages.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/models/messages.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/models/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/models/users.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/routes/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/auth.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +75,7 @@
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/david/AppMessaggi/client/src",
+    "last_opened_file_path": "C:/Users/Utente/Desktop/AppMessaggi",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
@@ -101,6 +132,7 @@
       <workItem from="1687094619164" duration="7429000" />
       <workItem from="1687109907360" duration="2397000" />
       <workItem from="1687172177903" duration="844000" />
+      <workItem from="1687176495601" duration="391000" />
     </task>
     <task id="LOCAL-00004" summary="Merge remote-tracking branch 'origin/main' into default">
       <created>1686750938808</created>
