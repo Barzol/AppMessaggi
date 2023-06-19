@@ -7,7 +7,7 @@ export default function ChatBox(data){
     return(
         <div className="chat">
             <div className="chat_header">
-                header {/*Avatar*/}
+                Avatar {/*Avatar*/}
                 <div className="chat_header_info">
                     <h3>Nome Chat</h3>
                     <p>Messaggio</p>
@@ -28,6 +28,57 @@ export default function ChatBox(data){
                     Message
                     <span className="chat_timestamp">{new Date().toUTCString()}</span>
                 </p>
+                <p className="chat_message">
+                    <span className="chat_name">MY NAME</span>
+                    Message
+                    <span className="chat_timestamp">{new Date().toUTCString()}</span>
+                </p>
+                <p className="chat_message chat_receiver">
+                    <span className="chat_name">MY NAME</span>
+                    Message
+                    <span className="chat_timestamp">{new Date().toUTCString()}</span>
+                </p>
+                <p className="chat_message">
+                    <span className="chat_name">MY NAME</span>
+                    Message
+                    <span className="chat_timestamp">{new Date().toUTCString()}</span>
+                </p>
+                <p className="chat_message chat_receiver">
+                    <span className="chat_name">MY NAME</span>
+                    Message
+                    <span className="chat_timestamp">{new Date().toUTCString()}</span>
+                </p>
+                <p className="chat_message">
+                    <span className="chat_name">MY NAME</span>
+                    Message
+                    <span className="chat_timestamp">{new Date().toUTCString()}</span>
+                </p>
+                <p className="chat_message chat_receiver">
+                    <span className="chat_name">MY NAME</span>
+                    Message
+                    <span className="chat_timestamp">{new Date().toUTCString()}</span>
+                </p>
+                <p className="chat_message">
+                    <span className="chat_name">MY NAME</span>
+                    Message
+                    <span className="chat_timestamp">{new Date().toUTCString()}</span>
+                </p>
+                <p className="chat_message chat_receiver">
+                    <span className="chat_name">MY NAME</span>
+                    Message
+                    <span className="chat_timestamp">{new Date().toUTCString()}</span>
+                </p>
+                <p className="chat_message">
+                    <span className="chat_name">MY NAME</span>
+                    Message
+                    <span className="chat_timestamp">{new Date().toUTCString()}</span>
+                </p>
+                <p className="chat_message chat_receiver">
+                    <span className="chat_name">MY NAME</span>
+                    Message
+                    <span className="chat_timestamp">{new Date().toUTCString()}</span>
+                </p>
+
             </div>
             <div className="chat_footer">
                 {/*Icona per l'emoticon*/}

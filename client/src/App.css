@@ -5,7 +5,8 @@
 .app{
   display: grid;
   place-items: center;
-  background-color: lightskyblue;
+  height: 100vh;
+  background-color: #0e1621;
 }
 
 .app_body{

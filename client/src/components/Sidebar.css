@@ -27,7 +27,7 @@
     align-items: center;
     background-color: aliceblue;
     height: 40px;
-    padding: 9px;
+    padding: 10px;
 }
 
 .sidebar_search_container{
@@ -37,6 +37,7 @@
     width: 100%;
     height: 38px;
     border-radius: 15px;
+    margin-bottom: 10px;
 }
 
 .sidebar_search_container > input{
@@ -49,5 +50,8 @@
 .sidebar_chat{
     flex: 1;
     background-color: white;
-    overflow: scroll;
+    /*prova overflow*/
+    overflow: auto;
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
 }

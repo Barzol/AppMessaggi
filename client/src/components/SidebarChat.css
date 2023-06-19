@@ -2,11 +2,11 @@
     display: flex;
     padding: 20px;
     cursor: pointer;
-    border-bottom: 1px solid aliceblue;
+    border-bottom: 1px solid lightgrey;
 }
 
 .sidebarChat:hover{
-    background-color: gray;
+    background-color: lightgray;
 }
 
 .sidebarChat_info{
@@ -14,7 +14,7 @@
 }
 
 .sidebarChat_info > p{
-    color: lightgrey;
+    color: grey;
 
 }
 

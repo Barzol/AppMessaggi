@@ -9,6 +9,7 @@
     padding: 20px;
     align-items: center;
     border-bottom: 1px solid lightgrey;
+    background-color: white;
 }
 
 .chat_header_info{
@@ -30,8 +31,13 @@
 .chat_body{
     flex: 1;
     padding: 30px;
-    overflow: scroll;
+
+    /*prova overflow*/
+    overflow: auto;
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
     /*immettere lo sfondo*/
+    background-color: lightcyan;
     background-repeat: repeat;
     background-position: center;
     background-size: contain;
@@ -49,7 +55,7 @@
 
 .chat_receiver {
     margin-left: auto;
-    background-color: lightgreen;
+    background-color: #a3ffbd;
 }
 
 .chat_name{
@@ -71,18 +77,19 @@
     align-items: center;
     height: 60px;
     border-top: 1px solid lightgrey;
+    background-color: #f3f3f3;
 }
 
 .chat_footer > form {
     display: flex;
     flex: 1;
-    padding: 8px;
+    padding: 5px;
 }
 
 .chat_footer > form > input{
     flex: 1;
     border-radius: 20px;
-    padding: 10px;
+    padding: 12px;
     border: none;
     outline-width: 0;
 }

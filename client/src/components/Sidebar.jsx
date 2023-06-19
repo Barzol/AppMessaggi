@@ -7,10 +7,10 @@ export default function Sidebar(loggedUser) {
         <div className="sidebar">
             <div className="sidebar_header">
                 <div className="sidebar_header_left">
-                    <h1>Header left</h1>
+                    <h1>Avatar</h1>
                 </div>
                 <div className="sidebar_header_right">
-                    <h1>Header right</h1>
+                    <h1>Strumenti</h1>
                 </div>
             </div>
             <div className="sidebar-searc">
