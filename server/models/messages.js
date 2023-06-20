@@ -9,7 +9,8 @@ const messageSchema = mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "User"
     },
-    content : String
+    content : String,
+    data_ora : Date
 
 })
 

@@ -5,10 +5,10 @@ const jwt = require('jwt-then')
 const bcrypt = require('bcrypt')
 const crypto = require('crypto')
 
-exports.register = async (req, res) => {
+module.exports.register = async (req, res) => {
     try{
         const{ fullName, username, password } = req.body
-        const userCheck = await User.findOne({ username })
+        const userCheck = await User.find({ username })
         if (userCheck)
             return res.json({message: "Username già in uso", status: false})
         const hashPass = await bcrypt.hash(password, 10)
@@ -17,7 +17,11 @@ exports.register = async (req, res) => {
             username,
             password
         })
-        return res.json({status: true, user})
+
+        return res.json({
+            message: "Utente registrato con successo!",
+            user
+        })
     }catch (error){
         console.log(error)
         res.status(500).json({message : error})
@@ -26,15 +30,19 @@ exports.register = async (req, res) => {
 
 }
 
-exports.login = async (req,res) => {
+module.exports.login = async (req,res) => {
     try{
         const{username, password } = req.body
-        const userCheck = await User.findOne({ username })
-        if (userCheck)
-            return res.json({message: "Username già in uso", status: false})
-        const hashPass = await bcrypt.hash(password, 10)
+        const user = await User.find({ username })
+        if (!user)
+            return res.json({message: "Nome utente o password errati", status: false})
 
-        if(!user) throw "Username e Password errati"
+        const passCheck = await bcrypt.compare(password,user.password)
+        if(!passCheck)
+            return res.json({message: "Nome utente o password errati", status: false})
+        delete user.password
+
+        const token = 'jwt-token'
 
         return res.json({
             message: "Utente loggato con successo!",
@@ -44,16 +52,19 @@ exports.login = async (req,res) => {
         console.log(error)
         res.status(500).json({message : error})
     }
+}
 
-    const {username, password} = req.body
-    const user = await User.findOne({password: sha256(password + process.env.SALT)})
+module.exports.getAllUsers = async (req,res) => {
+    try{
+        const users = await User.find({_id:{$ne: req.params.id }}).select([
+            "username","_id"
+        ])
+        return res.json(users)
 
-    if(!user) throw "Username e Password errati"
-
-    const token = jwt.sign({id: user.id}, process.env.SECRET)
-
-
-
+    }catch(error){
+        console.log(error)
+        res.status(500).json({message : error})
+    }
 }
 
 

@@ -1,10 +1,11 @@
-import React from 'react'
-import {Link} from "react-router-dom"
+import React, {useEffect} from 'react'
+import {Link, useNavigate} from "react-router-dom"
 import {useState} from "react";
 import './Register.css'
 import {ToastContainer, toast} from 'react-toastify'
 import "react-toastify/dist/ReactToastify.css"
 import axios from "axios";
+
 
 export default function Register(){
     const [info, setInfo] = useState({
@@ -12,6 +13,7 @@ export default function Register(){
         password : "",
         confirmPassword : ""
     })
+    const navigate = useNavigate()
 
     const window = {
         position: "bottom-right",
@@ -20,23 +22,28 @@ export default function Register(){
         theme: "dark"
     }
 
+
+
     const handleSubmit = async (event) => {
         event.preventDefault()
         if(handleVerify()) {
             const {username, password, confirmPassword} = info
-            const {data} = await axios.post('auth/register', {
-                username, password, confirmPassword
-            })
-            if(data.status === false) {
-                toast.error(data.message, window)
-            }
-            if(data.status === true) {
-                localStorage.setItem('chat-app-user', JSON.stringify(data.user))
+            try{
+                const response = await axios.post('/auth/register', {
+                    username, password, confirmPassword
+                })
+                if(response.data){
+                    navigate('/')
+                } else {
+                    throw new Error('Response data is undefined');
+                }
 
+            }catch(error){
+                toast.error(error.res.data.message, window)
             }
-
         }
     }
+
 
     const handleChange = (event) => {
         event.preventDefault()
@@ -72,11 +79,24 @@ export default function Register(){
                         name='password'
                         onChange={e=> handleChange(e)}
                     />
-                    <button type="submit">LOGIN</button>
+                    <input id='confirmPassRegister'
+                           type='password'
+                           placeholder='Confirm Password'
+                           name='confirmPassword'
+                           onChange={e=> handleChange(e)}
+                    />
+                    <button type="submit">REGISTRATI</button>
+
+                    <span>
+                        Possiedi un account?
+                        <Link to="/">
+                            <button>LOGIN</button>
+                        </Link>
+                    </span>
                 </form>
             </div>
             <ToastContainer />
-            </>
+        </>
     )
 
 }

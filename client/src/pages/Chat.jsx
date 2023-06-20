@@ -1,13 +1,49 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect} from "react";
+import {useNavigate} from "react-router-dom";
+import axios from 'axios'
 import ChatContainer from "../components/ChatContainer";
+import {Container} from "@mui/material";
+import SidebarChat from "../components/SidebarChat";
 
-export default function Home() {
-    const [chats, setChats] = useState([])
+export default function Chat() {
+    const navigate = useNavigate()
+    const [contacts, setContacts] = useState([])
+    const [loggedUser, setLoggedUser] = useState([])
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(false)
 
-    useEffect(() => {
+    useEffect(async() => {
+        if(loggedUser){
+            const data = await axios.get(`/auth/${loggedUser._id}`)
+            setContacts(data.data)
+        }
+    },[loggedUser])
+
+
+
+    return (
+        <>
+            <Container>
+                <div>
+                    <SidebarChat contacts={contacts} loggedUser={loggedUser}/>
+                </div>
+            </Container>
+
+
+
+            <div id="post-container">
+                {loading ? <span>Caricamento in corso...</span> :
+                    error ? <span>Errore nel caricamento dei post</span> :
+                        <ChatContainer chats={chats} />}
+            </div>
+        </>
+
+    )
+}
+
+/*
+useEffect(() => {
         axios({
             method: 'post',
             url: '',
@@ -28,12 +64,4 @@ export default function Home() {
                 setError(true)
             })
     }, [])
-
-    return (
-        <div id="post-container">
-            {loading ? <span>Caricamento in corso...</span> :
-                error ? <span>Errore nel caricamento dei post</span> :
-                    <ChatContainer chats={chats} />}
-        </div>
-    )
-}
+*/

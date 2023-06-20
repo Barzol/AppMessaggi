@@ -12,6 +12,7 @@ app.use(express.json())
 
 app.use("/auth", router)
 
+
 mongoose.connect('mongodb+srv://dehvid:GbJgzojiMXIEjm59@eswalbelly.cm7zzgd.mongodb.net/ProgettoWeb', {
     /*
     useNewUrlParser: true,

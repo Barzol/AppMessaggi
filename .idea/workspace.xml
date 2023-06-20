@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c557ad66-9af8-408a-b8c1-6f01ed9f1f1c" name="Changes" comment="Backend modificato : da completare">
+    <list default="true" id="c557ad66-9af8-408a-b8c1-6f01ed9f1f1c" name="Changes" comment="Ho aggiunto altre icone">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/ChatBox.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ChatBox.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/Sidebar.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Sidebar.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/pages/Register.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/Register.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +103,6 @@
       <workItem from="1687109907360" duration="2397000" />
       <workItem from="1687172177903" duration="844000" />
       <workItem from="1687176495601" duration="391000" />
-      <workItem from="1687257275856" duration="226000" />
     </task>
     <task id="LOCAL-00004" summary="Merge remote-tracking branch 'origin/main' into default">
       <created>1686750938808</created>

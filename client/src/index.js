@@ -1,27 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-//import './index.css'
 import App from './App.js';
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-
+/*
 ReactDOM.createRoot(document.getElementById('root')).render(
     <BrowserRouter>
         <App />
     </BrowserRouter>
 )
 
-/*
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>
 );
+*/
 
-
-ReactDOM.createRoot(document.getElementById('root'))return.render(
+ReactDOM.createRoot(document.getElementById('root')).render(
     <BrowserRouter>
         <Routes>
             <Route path="/" element={<Login />}/>
@@ -30,7 +29,7 @@ ReactDOM.createRoot(document.getElementById('root'))return.render(
         </Routes>
     </BrowserRouter>
 )
-*/
+
 
 
 

@@ -1,6 +1,5 @@
-import React from 'react'
-import {Link} from "react-router-dom"
-import {useState} from "react";
+import React, {useState, useEffect} from 'react'
+import {Link, useNavigate} from "react-router-dom"
 import './Register.css'
 import {ToastContainer, toast} from 'react-toastify'
 import "react-toastify/dist/ReactToastify.css"
@@ -11,6 +10,7 @@ export default function Login(){
         username : "",
         password : ""
     })
+    const navigate = useNavigate()
     const window = {
         position: "bottom-right",
         autoclose: 6000,
@@ -23,15 +23,20 @@ export default function Login(){
         event.preventDefault()
         if(handleVerify()) {
             const {username, password} = info
-            const {data} = await axios.post('auth/login', {
-                username, password
-            })
-            if(data.status === false) {
-                toast.error(data.message, window)
-            }
-            if(data.status === true) {
-                localStorage.setItem('chat-app-user', JSON.stringify(data.user))
+            try{
+                const response = await axios.post('/auth', {
+                    username, password
+                })
+                const {data} = response;
+                if(data){
+                    const token = data.token
+                    navigate('/chats')
+                } else {
+                    throw new Error('Response data is undefined');
+                }
 
+            }catch(error){
+                toast.error(error.res.data.message, window)
             }
 
         }
@@ -54,7 +59,6 @@ export default function Login(){
         } else {
             return true
         }
-
     }
 
     return (
@@ -74,6 +78,7 @@ export default function Login(){
                            onChange={e=> handleChange(e)}
                     />
                     <button type="submit">LOGIN</button>
+
                     <span>
                         Non possiedi un account?
                         <Link to="/register">
@@ -85,6 +90,7 @@ export default function Login(){
             </div>
             <ToastContainer />
         </>
+
     )
 
 }
