@@ -24,7 +24,7 @@ export default function Login(){
         if(handleVerify()) {
             const {username, password} = info
             try{
-                const response = await axios.post('/auth', {
+                const response = await axios.post('/auth/login', {
                     username, password
                 })
                 const {data} = response;

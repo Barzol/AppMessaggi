@@ -1,23 +1,20 @@
 const express = require('express')
 const mongoose = require('mongoose').default
 const cors = require('cors')
+const dotenv = require('dotenv')
 const router = require('./routes/auth')
-require('./models/users')
-require('./models/chats')
-require('./models/messages')
 
+dotenv.config()
 const app = express()
-app.use(cors())
+app.use(cors({
+    credentials: true,
+    origin: process.env.CLIENT_URL
+}))
 app.use(express.json())
 
 app.use("/auth", router)
 
-
-mongoose.connect('mongodb+srv://dehvid:GbJgzojiMXIEjm59@eswalbelly.cm7zzgd.mongodb.net/ProgettoWeb', {
-    /*
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-    */
+mongoose.connect(process.env.MONGO_URL, {
 
 }).then(() => {
     console.log('Connessione al DB')
@@ -25,6 +22,10 @@ mongoose.connect('mongodb+srv://dehvid:GbJgzojiMXIEjm59@eswalbelly.cm7zzgd.mongo
     console.log(error)
 })
 
-const server = app.listen(3000, () => {
-    console.log('Server Online sulla porta 3000')
+const db = mongoose.connection
+db.once("open", () => {
+    console.log("Connesso al DB")
+    app.listen(4000, () => {
+        console.log("App in ascolto")
+    })
 })

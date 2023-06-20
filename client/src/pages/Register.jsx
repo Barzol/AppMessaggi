@@ -10,8 +10,7 @@ import axios from "axios";
 export default function Register(){
     const [info, setInfo] = useState({
         username : "",
-        password : "",
-        confirmPassword : ""
+        password : ""
     })
     const navigate = useNavigate()
 
@@ -28,19 +27,8 @@ export default function Register(){
         event.preventDefault()
         if(handleVerify()) {
             const {username, password, confirmPassword} = info
-            try{
-                const response = await axios.post('/auth/register', {
-                    username, password, confirmPassword
-                })
-                if(response.data){
-                    navigate('/')
-                } else {
-                    throw new Error('Response data is undefined');
-                }
+            await axios.post('/auth/register', {username,password})
 
-            }catch(error){
-                toast.error(error.res.data.message, window)
-            }
         }
     }
 

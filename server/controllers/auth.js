@@ -1,30 +1,32 @@
 const express = require('express')
 const User = require('../models/users')
-const sha256 = require('js-sha256')
+const dotenv = require('dotenv')
 const jwt = require('jwt-then')
 const bcrypt = require('bcrypt')
 const crypto = require('crypto')
+const jwtSecret = process.env.JWT_SECRET
 
 module.exports.register = async (req, res) => {
     try{
-        const{ fullName, username, password } = req.body
-        const userCheck = await User.find({ username })
-        if (userCheck)
-            return res.json({message: "Username già in uso", status: false})
-        const hashPass = await bcrypt.hash(password, 10)
+        const{ username, password, confirmPassword } = req.body
         const user = await User.create({
-            fullName,
             username,
             password
         })
-
+        jwt.sign({userId: user._id}, jwtSecret)
+            .then((error, token) => {
+            if(error) throw error
+            res.cookie('token', token).status(201).json({
+                _id: user._id
+            })
+            })
         return res.json({
             message: "Utente registrato con successo!",
             user
         })
     }catch (error){
         console.log(error)
-        res.status(500).json({message : error})
+        res.status(500).json('error')
     }
 
 
@@ -53,6 +55,16 @@ module.exports.login = async (req,res) => {
         res.status(500).json({message : error})
     }
 }
+
+module.exports.getChatsFromCookie('/:chats', (req,res)=>{
+    const token =req.cookies?.token
+    if(token){
+        jwt.verify(token, jwtSecret, {}, (err, data) =>{
+        if(err) throw err
+        res.json(data)
+    })}
+
+})
 
 module.exports.getAllUsers = async (req,res) => {
     try{
