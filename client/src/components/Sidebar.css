@@ -21,7 +21,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    min-width: 10vw;
+    min-width: 2vw;
 }
 
 .sidebar_search{
