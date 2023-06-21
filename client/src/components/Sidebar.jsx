@@ -5,6 +5,7 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import SearchIcon from '@mui/icons-material/Search';
 import {Avatar, avatar, IconButton} from "@mui/material";
 import SidebarChat from "./SidebarChat.jsx";
+import SidebarMenu from "./SidebarMenu";
 
 export default function Sidebar(loggedUser) {
     return (
@@ -19,9 +20,10 @@ export default function Sidebar(loggedUser) {
                     <IconButton>
                         <ChatIcon></ChatIcon>
                     </IconButton>
-                    <IconButton>
+                    <SidebarMenu />
+                    {/*<IconButton>
                         <MoreVertIcon></MoreVertIcon>
-                    </IconButton>
+                    </IconButton>*/}
                 </div>
             </div>
             <div className="sidebar-searc">
