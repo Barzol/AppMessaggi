@@ -12,6 +12,7 @@ export default function Chat() {
     const [loggedUser, setLoggedUser] = useState([])
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(false)
+    const[ws,setWs] = useState(null)
 
     useEffect(async() => {
         if(loggedUser){
@@ -20,6 +21,15 @@ export default function Chat() {
         }
     },[loggedUser])
 
+    useEffect(() => {
+        const ws = new WebSocket('ws://localhost:4000')
+        setWs(ws)
+        ws.addEventListener('message', handleMessage)
+    },[])
+
+    const handleMessage = async (event) =>{
+        console.log('new message', e)
+    }
 
 
     return (

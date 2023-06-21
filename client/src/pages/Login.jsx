@@ -1,16 +1,18 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useContext} from 'react'
 import {Link, useNavigate} from "react-router-dom"
 import './Register.css'
 import {ToastContainer, toast} from 'react-toastify'
 import "react-toastify/dist/ReactToastify.css"
 import axios from "axios";
+import {UserContext} from "../components/UserContext";
 
 export default function Login(){
-    const [info, setInfo] = useState({
-        username : "",
-        password : ""
-    })
-    const navigate = useNavigate()
+    const [username, setUsername] = useState('')
+    const [password, setPassword] = useState('')
+    const [confirmPassword, setConfirmPassword] = useState('')
+    const {setInfo:setLoggedIn, setId} = useContext(UserContext)
+
+
     const window = {
         position: "bottom-right",
         autoclose: 6000,
@@ -22,38 +24,23 @@ export default function Login(){
     const handleSubmit = async (event) => {
         event.preventDefault()
         if(handleVerify()) {
-            const {username, password} = info
             try{
-                const response = await axios.post('/auth/login', {
-                    username, password
-                })
-                const {data} = response;
-                if(data){
-                    const token = data.token
-                    navigate('/chats')
-                } else {
-                    throw new Error('Response data is undefined');
-                }
-
+                const {infos} = await axios.post('/auth/login', {username,password, confirmPassword})
+                setLoggedIn(username)
+                setId(infos.id)
             }catch(error){
-                toast.error(error.res.data.message, window)
+                toast.error('Errore nella connessione col server', window)
             }
 
         }
     }
 
-    const handleChange = (event) => {
-        event.preventDefault()
-        setInfo({...info, [event.target.name] : event.target.value})
-    }
-
-
+    //Questo è inutile è può essere omesso perchè il button non si attiva se i campi sono vuoti
     const handleVerify = (event) => {
-        const { username, password} = info
         if(password === ""){
             toast.error('Password richiesta', window )
             return false
-        } else  if(username===""){
+        } else if(username===""){
             toast.error('Username richiesto', window )
             return false
         } else {
@@ -69,15 +56,15 @@ export default function Login(){
                            type='text'
                            placeholder='Username'
                            name='username'
-                           onChange={e=> handleChange(e)}
+                           onChange={e=> setUsername(e.target.value)}
                     />
                     <input id='passwordLogin'
                            type='password'
                            placeholder='Password'
                            name='password'
-                           onChange={e=> handleChange(e)}
+                           onChange={e=> setPassword(e.target.value)}
                     />
-                    <button type="submit">LOGIN</button>
+                    <button disabled={username.length === 0 || password.length === 0} type="submit">LOGIN</button>
 
                     <span>
                         Non possiedi un account?

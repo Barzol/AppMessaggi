@@ -12,6 +12,7 @@ export default function SidebarChat(contacts, loggedUser){
             <div className="sidebarChat">
                 {/*aggiungere avatar*/}
                 <div className="sidebarChat_info">
+
                     <h2>Name</h2>
                     <p>Message</p>
                 </div>

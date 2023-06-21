@@ -1,17 +1,15 @@
 const mongoose = require('mongoose')
 
 const messageSchema = mongoose.Schema({
-    chat : {
+    sender : {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Chat"
+        ref: 'User'
     },
-    user: {
+    receiver: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "User"
+        ref: 'User'
     },
-    content : String,
-    data_ora : Date
-
+    text: String
 })
 
 module.exports = mongoose.model('Message', messageSchema)

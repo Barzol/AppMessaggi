@@ -1,18 +1,18 @@
-import React, {useEffect} from 'react'
-import {Link, useNavigate} from "react-router-dom"
+import React, {useContext} from 'react'
+import {Link} from "react-router-dom"
 import {useState} from "react";
 import './Register.css'
 import {ToastContainer, toast} from 'react-toastify'
 import "react-toastify/dist/ReactToastify.css"
 import axios from "axios";
+import {UserContext} from "../components/UserContext";
 
 
 export default function Register(){
-    const [info, setInfo] = useState({
-        username : "",
-        password : ""
-    })
-    const navigate = useNavigate()
+    const [username, setUsername] = useState('')
+    const [password, setPassword] = useState('')
+    const [confirmPassword, setConfirmPassword] = useState('')
+    const {setInfo:setLoggedIn, setId} = useContext(UserContext)
 
     const window = {
         position: "bottom-right",
@@ -21,31 +21,27 @@ export default function Register(){
         theme: "dark"
     }
 
-
-
     const handleSubmit = async (event) => {
         event.preventDefault()
         if(handleVerify()) {
-            const {username, password, confirmPassword} = info
-            await axios.post('/auth/register', {username,password})
+            try{
+                const {infos} = await axios.post('auth/register', {username,password})
+                setLoggedIn(username)
+                setId(infos.id)
+            }catch(error){
+                toast.error('Errore nella connessione col server', window)
+            }
 
         }
     }
 
-
-    const handleChange = (event) => {
-        event.preventDefault()
-        setInfo({...info, [event.target.name] : event.target.value})
-    }
-
-
     const handleVerify = (event) => {
-        const { username, password, confirmPassword} = info
         if(password !== confirmPassword){
             toast.error('Le password non coincidono', window )
             return false
-        } else if (username.length < 2) {
+        } else if(username.length < 2) {
             toast.error('Username deve essere più lungo di 3 caratteri', window)
+            return false
         }
         return true
     }
@@ -53,27 +49,29 @@ export default function Register(){
     return (
         <>
             <div id='FormContainer'>
-                <form id='form' onSubmit={(event) => handleSubmit(event)}>
-                    <input id='usernameRegister'
-                           type='text'
-                           placeholder='Username'
-                           name='username'
-                           onChange={e=> handleChange(e)}
+                <form id='form' onSubmit={handleSubmit}>
+                    <input
+                        value={username}
+                        id='usernameRegister'
+                        type='text' placeholder='Username'
+                        name='username'
+                        onChange={e=> setUsername(e.target.value)}
                     />
                     <input
+                        value={password}
                         id='passwordRegister'
-                        type='password'
-                        placeholder='Password'
+                        type='password' placeholder='Password'
                         name='password'
-                        onChange={e=> handleChange(e)}
+                        onChange={e=> setPassword(e.target.value)}
                     />
-                    <input id='confirmPassRegister'
-                           type='password'
-                           placeholder='Confirm Password'
-                           name='confirmPassword'
-                           onChange={e=> handleChange(e)}
+                    <input
+                        value={confirmPassword}
+                        id='confirmPassRegister'
+                        type='password' placeholder='Confirm Password'
+                        name='confirmPassword'
+                        onChange={e=> setConfirmPassword(e.target.value)}
                     />
-                    <button type="submit">REGISTRATI</button>
+                    <button disabled={username.length === 0 || password.length === 0} type="submit">REGISTRATI</button>
 
                     <span>
                         Possiedi un account?
@@ -86,6 +84,7 @@ export default function Register(){
             <ToastContainer />
         </>
     )
+
 
 }
 
