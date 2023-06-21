@@ -14,6 +14,8 @@ export default function Register(){
     const [confirmPassword, setConfirmPassword] = useState('')
     const {setInfo:setLoggedIn, setId} = useContext(UserContext)
 
+    //commento inutile
+
     const window = {
         position: "bottom-right",
         autoclose: 6000,
