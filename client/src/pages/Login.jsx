@@ -9,7 +9,6 @@ import {UserContext} from "../components/UserContext";
 export default function Login(){
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
-    const [confirmPassword, setConfirmPassword] = useState('')
     const {setInfo:setLoggedIn, setId} = useContext(UserContext)
 
 
@@ -25,11 +24,11 @@ export default function Login(){
         event.preventDefault()
         if(handleVerify()) {
             try{
-                const {infos} = await axios.post('/auth/login', {username,password, confirmPassword})
+                const {infos} = await axios.post('/auth/login', {username,password})
                 setLoggedIn(username)
                 setId(infos.id)
             }catch(error){
-                toast.error('Errore nella connessione col server', window)
+                toast.error(error, window)
             }
 
         }
@@ -51,18 +50,20 @@ export default function Login(){
     return (
         <>
             <div id='FormContainer'>
-                <form id='form' onSubmit={(event) => handleSubmit(event)}>
-                    <input id='usernameLogin'
-                           type='text'
-                           placeholder='Username'
-                           name='username'
-                           onChange={e=> setUsername(e.target.value)}
+                <form id='form' onSubmit={handleSubmit}>
+                    <input
+                        value={username}
+                        id='usernameLogin'
+                        type='text' placeholder='Username'
+                        name='username'
+                        onChange={e=> setUsername(e.target.value)}
                     />
-                    <input id='passwordLogin'
-                           type='password'
-                           placeholder='Password'
-                           name='password'
-                           onChange={e=> setPassword(e.target.value)}
+                    <input
+                        value={password}
+                        id='passwordLogin'
+                        type='password' placeholder='Password'
+                        name='password'
+                        onChange={e=> setPassword(e.target.value)}
                     />
                     <button disabled={username.length === 0 || password.length === 0} type="submit">LOGIN</button>
 

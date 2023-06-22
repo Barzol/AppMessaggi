@@ -4,11 +4,20 @@ import ChatIcon from '@mui/icons-material/Chat';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import SearchIcon from '@mui/icons-material/Search';
 import {Avatar, avatar, IconButton} from "@mui/material";
-import SidebarChat from "./SidebarChat.jsx";
+import {useState, useEffect} from "react";
+
 import SidebarMenu from "./SidebarMenu";
 
+
 export default function Sidebar(loggedUser) {
+    const [userName,setUserName] = useState()
+    const [selected, setSelected] = useState()
+    useEffect((userName) => {
+        setUserName(loggedUser.username)
+    },[loggedUser])
+
     return (
+
         <div className="sidebar">
             <div className="sidebar_header">
                 <div className="sidebar_header_left">
@@ -33,7 +42,7 @@ export default function Sidebar(loggedUser) {
                 </div>
             </div>
             <div className="sidebar_chat">
-                <SidebarChat />
+                { /* Rimpiazzo SidebarChat */}
             </div>
         </div>
     );

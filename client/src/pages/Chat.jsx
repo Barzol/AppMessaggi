@@ -2,9 +2,9 @@ import React from "react";
 import { useState, useEffect} from "react";
 import {useNavigate} from "react-router-dom";
 import axios from 'axios'
-import ChatContainer from "../components/ChatContainer";
 import {Container} from "@mui/material";
-import SidebarChat from "../components/SidebarChat";
+import Sidebar from "../components/Sidebar";
+import ChatBox from "../components/ChatBox";
 
 export default function Chat() {
     const navigate = useNavigate()
@@ -28,24 +28,17 @@ export default function Chat() {
     },[])
 
     const handleMessage = async (event) =>{
-        console.log('new message', e)
+        console.log('new message', event)
     }
 
 
     return (
         <>
-            <Container>
-                <div>
-                    <SidebarChat contacts={contacts} loggedUser={loggedUser}/>
+            <div className="app">
+                <div className="app_body">
+                    <Sidebar />
+                    <ChatBox />
                 </div>
-            </Container>
-
-
-
-            <div id="post-container">
-                {loading ? <span>Caricamento in corso...</span> :
-                    error ? <span>Errore nel caricamento dei post</span> :
-                        <ChatContainer chats={chats} />}
             </div>
         </>
 

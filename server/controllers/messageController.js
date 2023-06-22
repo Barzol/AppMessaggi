@@ -21,25 +21,24 @@ module.exports.getUserData = async (req,res) => {
 }
 
 module.exports.getMessage = async  (req,res) => {
-    const {userId} = req.params
-    const userData = await this.getUserData(req)
-    const myUserId = userData.userId
-    const messages = await Message.find({
-        sender:{$in:[userId,myUserId]},
-        receiver:{$in:[userId,myUserId]}
-    }).sort({createdAt: 1})
-    res.json(messages)
+    try {
+        const messages = await Message.find({
+            conversationId: req.params.conversationId,
+        });
+        res.status(200).json(messages);
+    } catch (err) {
+        res.status(500).json(err);
+    }
 }
 
 module.exports.sendMessage = async  (req,res) => {
-    const messageData = JSON.parse(req.toString())
-    const {receiver, text} = messageData
-    const messageDoc = await Message.create({
-        sender: connection.userId,
-        receiver,
-        text
-    })
-    console.log('messaggio creato')
+    const newMessage = new Message(req.body);
+    try {
+        const savedMessage = await newMessage.save();
+        res.status(200).json(savedMessage);
+    } catch (err) {
+        res.status(500).json(err);
+    }
 }
 
 module.exports.receiveMessage = async  (req,res) => {

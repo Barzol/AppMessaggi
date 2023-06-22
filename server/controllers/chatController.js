@@ -7,12 +7,22 @@ const bcrypt = require('bcrypt')
 const jwtSecret = process.env.JWT_SECRET
 
 
-module.exports.getChatsByUser = async  (req,res) => {
+module.exports.getChats = async  (req,res) => {
+    const token = req.cookies?.token
+    if(token){
+        jwt.verify(token,jwtSecret,{},(error,data)=>{
+            if (error) throw error
+            res.json(data)
+        })
+    }else{
+        res.status(401).json('nessun token')
+    }
 
 }
 
-module.exports.newChat = async  (req,res) => {
-
+module.exports.getFriends = async  (req,res) => {
+    const friends = await User.find({},{'id':1,username:1})
+    res.json(friends)
 }
 
 module.exports.addFriend = async  (req,res) => {

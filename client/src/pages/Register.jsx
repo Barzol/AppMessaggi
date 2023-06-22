@@ -12,7 +12,7 @@ export default function Register(){
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
-    const {setInfo:setLoggedIn, setId} = useContext(UserContext)
+    const {setUsername:setLoggedIn, setId} = useContext(UserContext)
 
     //commento inutile
 
@@ -27,13 +27,13 @@ export default function Register(){
         event.preventDefault()
         if(handleVerify()) {
             try{
-                const {infos} = await axios.post('auth/register', {username,password})
+                const {infos} = await axios.post('/auth/register', {username,password})
                 setLoggedIn(username)
                 setId(infos.id)
-            }catch(error){
-                toast.error('Errore nella connessione col server', window)
-            }
 
+            }catch(error){
+                toast.error(error, window)
+            }
         }
     }
 

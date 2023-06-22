@@ -5,11 +5,12 @@ const cors = require('cors')
 const dotenv = require('dotenv')
 const router = require('./routes/routes')
 const WebSocketServer = require('ws').Server
+const jwt = require('jwt-then')
 
 dotenv.config()
 mongoose.connect(process.env.MONGO_URL)
     .then(() => {
-        console.log('Connessione al DB')
+        console.log('Connesso al DB')
     })
     .catch((error) =>{
         console.log(error)

@@ -16,7 +16,7 @@ export function UserContextProvider({children}) {
     const [username, setUsername] = useState(null)
     const[id, setId] = useState(null)
     useEffect(() => {
-        axios.get('/profilo').then( (req,res)=>{
+        axios.get('auth/chats').then( (req,res)=>{
             setId(res.data.userId)
             setUsername(res.data.username)
         })

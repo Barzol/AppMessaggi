@@ -11,9 +11,9 @@ router.get('/', (req, res) => {
 
 router.post("/login", authController.login)
 router.post("/register", authController.register)
-// router.post("/all", userController.getAllUsers)
-router.get('/messages/:userId', messageController.getMessage)
-router.get('/messages', messageController.sendMessage)
+router.post("/chats", chatController.getChats)
+//router.get('/messages/:userId', messageController.getMessage)
+// router.get('/messages', messageController.sendMessage)
 // router.get('/???', userController.getChatsFromCookie)
 
 module.exports = router
