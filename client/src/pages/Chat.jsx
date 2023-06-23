@@ -15,6 +15,17 @@ export default function Chat() {
     const [friends, setFriends] = useState([])
     const [loggedUser, setLoggedUser] = useState(undefined)
     const [currentChat, setCurrentChat] = useState(undefined)
+    const [logged, setLogged] = useState(false)
+
+
+    useEffect( ()=> {
+        if (!localStorage.getItem('user'))
+            navigate('/')
+        else{
+            setLoggedUser( JSON.parse(localStorage.getItem('user')))
+            setLogged(true)
+        }
+    },[])
 
     useEffect(()=>{
         const getLoggedUser = async () => {

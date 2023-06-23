@@ -1,0 +1,16 @@
+
+Consiglio iniziale: guardate sempre tramite Ispeziona del browser le varie richieste post e get
+così si può capire cosa non va volta per volta
+
+---LOGIN E REGISTER---
+Far funzionare il Redirect alla pagina: il login e il register funzionano e danno
+come res.json le informazioni sull'user e lo stato true, quindi il login/register è
+avvenuto, ma non so perchè nel frontend non riesce ad andare in navigate e far cambiare pagina
+
+---VISUALIZZAZIONE MESSAGGI e INVIO MESSAGGI--
+Nel backend i controller getAllMessage e sendMessage l'ho già implementati
+Bisogna vedere se funzionano e testare eventuali bug
+
+---AMICI---
+Ho implementato le varie API per vedere i contatti ma non per aggiungere e rimuoverli
+La Siderbar è già configurata per mostrare tutti i contatti

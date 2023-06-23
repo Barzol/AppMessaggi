@@ -5,18 +5,12 @@ import {Avatar, Icon, IconButton} from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import {AttachFile, EmojiEmotions, MoreVert, Send} from "@mui/icons-material";
 import {allMessageRoute} from "../APIroutes";
+import ChatFooter from "./ChatFooter";
 
 export default function ChatBox({currentChat, loggedUser, socket}){
     const [messageArray, setMessageArray] = useState([])
     const [sendedMessage, setSendedMessage] = useState('null')
 
-    const handleChat= async (e)=>{
-        e.preventDefault()
-        if(messageArray.length > 0){
-            await handleSend(messageArray)
-            setMessageArray('')
-        }
-    }
 
     const handleSend = async (message) =>{
         await axios.post('auth/sendmessage', {
@@ -70,7 +64,9 @@ export default function ChatBox({currentChat, loggedUser, socket}){
             <div className="chat_header">
                 <Avatar />
                 <div className="chat_header_info">
-                    <h3>{currentChat.username}</h3>
+                    <h3>
+
+                    </h3>
                 </div>
                 <div className="chat_header_right">
                     <IconButton>
@@ -111,19 +107,9 @@ export default function ChatBox({currentChat, loggedUser, socket}){
 
 
             </div>
-            <div className="chat_footer">
-                <IconButton>
-                    <EmojiEmotions />
-                </IconButton>
-                <form onSubmit={(e)=>handleChat((e))}>
-                    <input placeholder="Scrivi un messaggio..." type="text" />
-                    <button type="submit">
-                        <IconButton>
-                            <Send />
-                        </IconButton>
-                    </button>
-                </form>
-            </div>
+
+            <ChatFooter handleSend={handleSend}/>
+
         </div>
     )
 }

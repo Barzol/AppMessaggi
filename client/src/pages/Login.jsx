@@ -1,15 +1,17 @@
-import React, {useState, useEffect, useContext} from 'react'
+import React, {useState, useEffect} from 'react'
 import {Link, useNavigate} from "react-router-dom"
 import './Register.css'
 import {ToastContainer, toast} from 'react-toastify'
 import "react-toastify/dist/ReactToastify.css"
 import axios from "axios";
-import {UserContext} from "../components/UserContext";
 import {loginRoute} from "../APIroutes";
 
 export default function Login(){
-    const [username, setUsername] = useState('')
-    const [password, setPassword] = useState('')
+    //const [username, setUsername] = useState('')
+    //const [password, setPassword] = useState('')
+    const [data, setData] = useState({
+        username:'', password:''
+    })
     //const {setInfo:setLoggedIn, setId} = useContext(UserContext)
     const navigate = useNavigate()
 
@@ -20,19 +22,27 @@ export default function Login(){
         theme: "dark"
     }
 
+    useEffect(()=>{
+        if(localStorage.getItem('user')){
+            navigate('/chats')
+        }
+    })
+
 
     const handleSubmit = async (event) => {
         event.preventDefault()
         if(handleVerify()) {
             try{
+                const {username, password} = data
                 const {infos} = await axios.post(loginRoute, {username,password})
                 if(infos.status === false){
                     toast.error(infos.msg, window)
-                } else {
+                } else if(infos.status === true) {
+                    console.log('i morti tuoi')
                     localStorage.setItem('user', JSON.stringify(infos.user))
-                    navigate('/chats')
                 }
 
+                navigate('/chats')
 
             }catch(error){
                 toast.error(error, window)
@@ -40,12 +50,16 @@ export default function Login(){
         }
     }
 
+    const handleChange = (event) => {
+        setData({ ...data,[event.target.name]: event.target.value})
+    }
+
     //Questo è inutile è può essere omesso perchè il button non si attiva se i campi sono vuoti
-    const handleVerify = (event) => {
-        if(password === ""){
+    const handleVerify = () => {
+        if(data.password === ""){
             toast.error('Password richiesta', window )
             return false
-        } else if(username===""){
+        } else if(data.username===""){
             toast.error('Username richiesto', window )
             return false
         } else {
@@ -58,20 +72,20 @@ export default function Login(){
             <div id='FormContainer'>
                 <form id='form' onSubmit={handleSubmit}>
                     <input
-                        value={username}
+                        value={data.username}
                         id='usernameLogin'
                         type='text' placeholder='Username'
                         name='username'
-                        onChange={e=> setUsername(e.target.value)}
+                        onChange={e=> handleChange(e)}
                     />
                     <input
-                        value={password}
+                        value={data.password}
                         id='passwordLogin'
                         type='password' placeholder='Password'
                         name='password'
-                        onChange={e=> setPassword(e.target.value)}
+                        onChange={e=> handleChange(e)}
                     />
-                    <button disabled={username.length === 0 || password.length === 0} type="submit">LOGIN</button>
+                    <button disabled={data.username.length === 0 || data.password.length === 0} type="submit">LOGIN</button>
 
                     <span>
                         Non possiedi un account?
