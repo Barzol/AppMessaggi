@@ -1,18 +1,76 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import "./ChatBox.css";
+import axios from 'axios'
 import {Avatar, Icon, IconButton} from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import {AttachFile, EmojiEmotions, MoreVert, Send} from "@mui/icons-material";
-//import SendIcon from '@mui/icons-material/Send';
+import {allMessageRoute} from "../APIroutes";
 
-export default function ChatBox(data){
+export default function ChatBox({currentChat, loggedUser, socket}){
+    const [messageArray, setMessageArray] = useState([])
+    const [sendedMessage, setSendedMessage] = useState('null')
+
+    const handleChat= async (e)=>{
+        e.preventDefault()
+        if(messageArray.length > 0){
+            await handleSend(messageArray)
+            setMessageArray('')
+        }
+    }
+
+    const handleSend = async (message) =>{
+        await axios.post('auth/sendmessage', {
+            sender: loggedUser._id,
+            receiver: currentChat._id,
+            text: message
+        })
+
+        socket.current.emit('send-message',{
+            sender: loggedUser._id,
+            receiver: currentChat._id,
+            text: message
+        })
+
+        const messages = [...messageArray]
+        messages.push({
+            fromSelf: true,
+            message: message
+        })
+        setMessageArray(messages)
+    }
+
+    useEffect(() => {
+        if (socket.current) {
+            socket.current.on("msg-recieved", (msg) => {
+                setSendedMessage({
+                    fromSelf: false,
+                    message: msg,
+                });
+            })
+        }
+    }, []);
+
+    useEffect(()=>{
+        const data = async () => {
+            if(currentChat){
+                const res = await axios.post(allMessageRoute,{
+                    sender: loggedUser._id,
+                    receiver: currentChat._id
+                })
+                setMessageArray(res.data)
+            }
+        }
+        data()
+    },[currentChat])
+
+
+
     return(
         <div className="chat">
             <div className="chat_header">
                 <Avatar />
                 <div className="chat_header_info">
-                    <h3>Nome Chat</h3>
-                    <p>Messaggio</p>
+                    <h3>{currentChat.username}</h3>
                 </div>
                 <div className="chat_header_right">
                     <IconButton>
@@ -27,74 +85,37 @@ export default function ChatBox(data){
                 </div>
             </div>
             <div className="chat_body">
-                {/*Messaggi*/}
-                <p className="chat_message">
-                    <span className="chat_name">MY NAME</span>
-                    Message
-                    <span className="chat_timestamp">{new Date().toUTCString()}</span>
-                </p>
+
+                {messageArray.map((message)=>{
+                    return (
+                        <div className={`chat_${message.fromSelf ? 'sended':'recieved'}`} >
+                            {message.message}
+                            <span className="chat_timestamp">{new Date().toUTCString()}</span>
+                        </div>
+                    )
+                })}
+
+
                 <p className="chat_message chat_receiver">
-                    <span className="chat_name">MY NAME</span>
-                    Message
-                    <span className="chat_timestamp">{new Date().toUTCString()}</span>
-                </p>
-                <p className="chat_message">
-                    <span className="chat_name">MY NAME</span>
-                    Message
-                    <span className="chat_timestamp">{new Date().toUTCString()}</span>
-                </p>
-                <p className="chat_message chat_receiver">
-                    <span className="chat_name">MY NAME</span>
-                    Message
+                    Message1
                     <span className="chat_timestamp">{new Date().toUTCString()}</span>
                 </p>
                 <p className="chat_message">
-                    <span className="chat_name">MY NAME</span>
-                    Message
+                    Message2
                     <span className="chat_timestamp">{new Date().toUTCString()}</span>
                 </p>
                 <p className="chat_message chat_receiver">
-                    <span className="chat_name">MY NAME</span>
-                    Message
+                    Message3
                     <span className="chat_timestamp">{new Date().toUTCString()}</span>
                 </p>
-                <p className="chat_message">
-                    <span className="chat_name">MY NAME</span>
-                    Message
-                    <span className="chat_timestamp">{new Date().toUTCString()}</span>
-                </p>
-                <p className="chat_message chat_receiver">
-                    <span className="chat_name">MY NAME</span>
-                    Message
-                    <span className="chat_timestamp">{new Date().toUTCString()}</span>
-                </p>
-                <p className="chat_message">
-                    <span className="chat_name">MY NAME</span>
-                    Message
-                    <span className="chat_timestamp">{new Date().toUTCString()}</span>
-                </p>
-                <p className="chat_message chat_receiver">
-                    <span className="chat_name">MY NAME</span>
-                    Message
-                    <span className="chat_timestamp">{new Date().toUTCString()}</span>
-                </p>
-                <p className="chat_message">
-                    <span className="chat_name">MY NAME</span>
-                    Message
-                    <span className="chat_timestamp">{new Date().toUTCString()}</span>
-                </p>
-                <p className="chat_message chat_receiver">
-                    <span className="chat_name">MY NAME</span>
-                    Message
-                    <span className="chat_timestamp">{new Date().toUTCString()}</span>
-                </p>
+
 
             </div>
             <div className="chat_footer">
                 <IconButton>
                     <EmojiEmotions />
                 </IconButton>
-                <form>
+                <form onSubmit={(e)=>handleChat((e))}>
                     <input placeholder="Scrivi un messaggio..." type="text" />
                     <button type="submit">
                         <IconButton>

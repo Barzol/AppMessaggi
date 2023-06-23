@@ -4,8 +4,11 @@ const mongoose = require('mongoose').default
 const cors = require('cors')
 const dotenv = require('dotenv')
 const router = require('./routes/routes')
-const WebSocketServer = require('ws').Server
+const socket = require('socket.io')
 const jwt = require('jwt-then')
+
+const jwtSecret = process.env.JWT_SECRET;
+const app = express()
 
 dotenv.config()
 mongoose.connect(process.env.MONGO_URL)
@@ -15,60 +18,44 @@ mongoose.connect(process.env.MONGO_URL)
     .catch((error) =>{
         console.log(error)
     })
-const jwtSecret = process.env.JWT_SECRET;
-const app = express()
+
 app.use(express.json())
-app.use(cookieParser())
-app.use(cors({
-    credentials: true,
-    origin: process.env.CLIENT_URL
-}))
+app.use(cors())
 
 app.get('/', (req,res) => {
     res.json('Ciao sei nella Root')
 })
 
+const server = app.listen(4000, ()=>{
+    console.log('Server in ascolto sulla porta 4000')
+})
+
+const io = socket(server, {
+    cors:{
+        credentials: true,
+        origin: process.env.CLIENT_URL
+    }
+})
+
 app.use("/auth", router)
-
-const server = app.listen(4000)
-
-const wss = new WebSocketServer({server})
-wss.on('connection',(connection, req) =>{
-
-    function isOnline(){
-        [...wss.clients].forEach(client => {
-            client.send(JSON.stringify({
-                online: [...wss.clients].map(user => (
-                    {userId:c.userId, username:c.username}
-                ))
-            }))
-        })
-    }
-
-    const cookies = req.headers.cookie
-    if(cookies){
-        const tokenCookie = cookies.split(';').find(str=> str.startsWith('token='))
-        if(tokenCookie){
-            const token = tokenCookie.split('=')[1]
-            if(token){
-                jwt.verify(token,jwtSecret,{},(error,userData) => {
-                    if(error) throw error
-                    const {userId, username} = userData
-                    connection.userId = userId
-                    connection.username = username
-                })
-            }
-        }
-    }
-
-    connection.on('message', async(message) => {
-
+global.isOnline = new Map()
+io.on('connection', (socket)=>{
+    global.chat = socket;
+    socket.on('add-friend',(userId)=>{
+        isOnline.set(userId,socket.id)
     })
 
-
-
-
+    socket.on('send-message',(data)=>{
+        const sendSocket = isOnline.get(data.to)
+        if(sendSocket) {
+            socket.to(sendSocket).emit('received-message', data.message)
+        }
+    })
 })
+
+
+
+
 
 
 

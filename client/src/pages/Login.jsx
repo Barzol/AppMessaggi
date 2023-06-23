@@ -5,12 +5,13 @@ import {ToastContainer, toast} from 'react-toastify'
 import "react-toastify/dist/ReactToastify.css"
 import axios from "axios";
 import {UserContext} from "../components/UserContext";
+import {loginRoute} from "../APIroutes";
 
 export default function Login(){
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
-    const {setInfo:setLoggedIn, setId} = useContext(UserContext)
-
+    //const {setInfo:setLoggedIn, setId} = useContext(UserContext)
+    const navigate = useNavigate()
 
     const window = {
         position: "bottom-right",
@@ -24,13 +25,18 @@ export default function Login(){
         event.preventDefault()
         if(handleVerify()) {
             try{
-                const {infos} = await axios.post('/auth/login', {username,password})
-                setLoggedIn(username)
-                setId(infos.id)
+                const {infos} = await axios.post(loginRoute, {username,password})
+                if(infos.status === false){
+                    toast.error(infos.msg, window)
+                } else {
+                    localStorage.setItem('user', JSON.stringify(infos.user))
+                    navigate('/chats')
+                }
+
+
             }catch(error){
                 toast.error(error, window)
             }
-
         }
     }
 

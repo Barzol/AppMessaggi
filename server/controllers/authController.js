@@ -1,23 +1,21 @@
-const express = require('express')
-const mongoose = require('mongoose')
 const User = require('../models/users')
-const Messages = require('../models/messages')
-const dotenv = require('dotenv').config()
-const jwt = require('jwt-then')
 const bcrypt = require('bcrypt')
-const jwtSecret = process.env.JWT_SECRET
+
 
 module.exports.register = async (req, res) => {
-    // const{ username, password } = req.body
+    const{ username, password } = req.body
     try {
-        const hashedPassword = await bcrypt.hash(req.body.password, 10);
-        const newUser = new User({
-            username: req.body.username,
-            password: hashedPassword,
-        });
-
-        const user = await newUser.save();
-        res.status(200).json(user);
+        const hashedPassword = await bcrypt.hash(password, 10);
+        const user = await User.find({ username });
+        if(!user){
+            const newUser = new User({
+                username: username,
+                password: hashedPassword,
+            });
+            res.status(200).json(newUser);
+        }else{
+            res.status(400).json({ msg: "Username già in uso"});
+        }
     } catch (err) {
         res.status(500).json(err)
     }
@@ -38,8 +36,16 @@ module.exports.login = async (req,res) => {
 }
 
 module.exports.logout = async (req,res) => {
-    res.cookie('token', '' ,{sameSite:'none',secure:true}).json('ok')
+    if(!req.params.id) {
+        return res.json({message: 'UserId richiesto'})
+    }
+    delete req.params.id
+    return res.status(200).send()
+
+    //res.cookie('token', '' ,{sameSite:'none',secure:true}).json('ok')
 }
+
+
 
 
 

@@ -21,7 +21,11 @@ module.exports.getChats = async  (req,res) => {
 }
 
 module.exports.getFriends = async  (req,res) => {
-    const friends = await User.find({},{'id':1,username:1})
+    const friends = await User.find({_id:{$ne:req.params.id}})
+        .select([
+            'username',
+            '_id'
+        ])
     res.json(friends)
 }
 
@@ -36,19 +40,5 @@ module.exports.displayMessages = async  (req,res) => {
 
 }
 
-module.exports.getChatsFromCookie = async (req,res)=>{
-    const token =req.cookies?.token
-    if(token){
-        jwt.verify(token, jwtSecret, {}, (err, data) =>{
-            if(err) throw err
-            res.json(data)
-        })}
-
-}
-
-module.exports.getAllUsers = async (req,res) => {
-    const users = await User.find({},{'_id':1,username:1})
-    res.json(users)
-}
 
 

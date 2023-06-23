@@ -1,43 +1,50 @@
 import React from "react";
-import { useState, useEffect} from "react";
+import { useState, useEffect, useRef} from "react";
 import {useNavigate} from "react-router-dom";
 import axios from 'axios'
 import {Container} from "@mui/material";
 import Sidebar from "../components/Sidebar";
 import ChatBox from "../components/ChatBox";
+import {io} from 'socket.io-client'
+import {host, allUsersRoute} from '../APIroutes'
+
 
 export default function Chat() {
+    const socket = useRef()
     const navigate = useNavigate()
-    const [contacts, setContacts] = useState([])
-    const [loggedUser, setLoggedUser] = useState([])
-    const [loading, setLoading] = useState(true)
-    const [error, setError] = useState(false)
-    const[ws,setWs] = useState(null)
+    const [friends, setFriends] = useState([])
+    const [loggedUser, setLoggedUser] = useState(undefined)
+    const [currentChat, setCurrentChat] = useState(undefined)
 
-    useEffect(async() => {
+    useEffect(()=>{
+        const getLoggedUser = async () => {
+            if(loggedUser){
+                const data = await axios.get(`${allUsersRoute}/${loggedUser._id}`)
+                setFriends(data.data)
+            }
+        }
+        getLoggedUser()
+    },[loggedUser])
+
+    const handleChatChange = (chat) =>{
+        setCurrentChat(chat);
+    }
+
+    useEffect(()=>{
         if(loggedUser){
-            const data = await axios.get(`/auth/${loggedUser._id}`)
-            setContacts(data.data)
+            socket.current = io(host)
+            socket.current.emit('add-user', loggedUser._id)
         }
     },[loggedUser])
 
-    useEffect(() => {
-        const ws = new WebSocket('ws://localhost:4000')
-        setWs(ws)
-        ws.addEventListener('message', handleMessage)
-    },[])
-
-    const handleMessage = async (event) =>{
-        console.log('new message', event)
-    }
 
 
     return (
         <>
             <div className="app">
                 <div className="app_body">
-                    <Sidebar />
-                    <ChatBox />
+                    <Sidebar chatChange={handleChatChange} friends={friends} loggedUser={loggedUser} />
+                    <ChatBox currentChat={currentChat} socket={socket} loggedUser={loggedUser}/>
                 </div>
             </div>
         </>
@@ -45,26 +52,3 @@ export default function Chat() {
     )
 }
 
-/*
-useEffect(() => {
-        axios({
-            method: 'post',
-            url: '',
-            data:{
-
-            }
-        })
-            .then(res => {
-                if (res.ok) return res.json();
-                else throw new Error('Si è verificato un errore nella comunicazione con il server');
-            })
-            .then(obj => {
-                setLoading(false)
-                setChats(obj)
-            })
-            .catch(error => {
-                setLoading(false)
-                setError(true)
-            })
-    }, [])
-*/

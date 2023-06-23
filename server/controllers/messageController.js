@@ -6,41 +6,43 @@ const jwt = require('jwt-then')
 const bcrypt = require('bcrypt')
 const jwtSecret = process.env.JWT_SECRET
 
-module.exports.getUserData = async (req,res) => {
-    return new Promise((res, rej) => {
-        const token = req.cookies?.token
-        if(token) {
-            jwt.verify(token, jwtSecret, {}, (err, userData) => {
-                if(err) throw err
-                res(userData)
-            })
-        } else {
-            rej('no token')
-        }
-    })
-}
 
-module.exports.getMessage = async  (req,res) => {
+module.exports.getAllMessage = async  (req,res) => {
     try {
+        const {sender,receiver} = req.body
         const messages = await Message.find({
-            conversationId: req.params.conversationId,
-        });
-        res.status(200).json(messages);
+            sender: sender,
+            receiver: receiver
+        }).sort({updatedAt: 1});
+
+        const displayMessages = messages.map(c => {
+            return{
+                fromSelf : c.sender.toString() === sender,
+                text: c.message.text
+            }
+        })
+        res.status(200).json(displayMessages);
     } catch (err) {
         res.status(500).json(err);
     }
 }
 
 module.exports.sendMessage = async  (req,res) => {
-    const newMessage = new Message(req.body);
     try {
-        const savedMessage = await newMessage.save();
-        res.status(200).json(savedMessage);
+        const {sender, receiver, text} = req.body
+        const newMessage = new Message.create({
+            sender: sender,
+            receiver: receiver,
+            text: text
+        })
+
+        if(newMessage)
+            return res.json({message:'Messaggio inviato con successo'})
+        else
+            return res.json({message: 'Fallimento invio del messaggio'})
+
     } catch (err) {
         res.status(500).json(err);
     }
 }
 
-module.exports.receiveMessage = async  (req,res) => {
-
-}

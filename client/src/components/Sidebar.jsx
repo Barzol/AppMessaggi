@@ -5,15 +5,24 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import SearchIcon from '@mui/icons-material/Search';
 import {Avatar, avatar, IconButton} from "@mui/material";
 import {useState, useEffect} from "react";
-
+import allUsersRoute from '../APIroutes'
 import SidebarMenu from "./SidebarMenu";
 
 
-export default function Sidebar(loggedUser) {
+export default function Sidebar({friends, loggedUser, chatChange}) {
     const [userName,setUserName] = useState()
     const [selected, setSelected] = useState()
+
+    const changeSelectedChat = (i, friend) => {
+        setSelected(i)
+        chatChange(friend)
+    }
+
     useEffect((userName) => {
-        setUserName(loggedUser.username)
+        if(loggedUser){
+            setUserName(loggedUser.username)
+        }
+
     },[loggedUser])
 
     return (
@@ -42,7 +51,15 @@ export default function Sidebar(loggedUser) {
                 </div>
             </div>
             <div className="sidebar_chat">
-                { /* Rimpiazzo SidebarChat */}
+                {friends.map((friend,i)=>{
+                    return (
+                        <div
+                            className={` friend ${i === selected ? 'selected' : ''}`}
+                            onClick={()=>changeSelectedChat(i,friend)}>
+                            <h3>{friend.username}</h3>
+                        </div>
+                    )
+                })}
             </div>
         </div>
     );

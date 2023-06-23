@@ -1,18 +1,20 @@
 import React, {useContext} from 'react'
-import {Link} from "react-router-dom"
+import {Link, useNavigate} from "react-router-dom"
 import {useState} from "react";
 import './Register.css'
 import {ToastContainer, toast} from 'react-toastify'
 import "react-toastify/dist/ReactToastify.css"
 import axios from "axios";
 import {UserContext} from "../components/UserContext";
+import {registerRoute} from "../APIroutes";
 
 
 export default function Register(){
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
-    const {setUsername:setLoggedIn, setId} = useContext(UserContext)
+    // const {setUsername:setLoggedIn, setId} = useContext(UserContext)
+    const navigate = useNavigate()
 
     //commento inutile
 
@@ -27,9 +29,14 @@ export default function Register(){
         event.preventDefault()
         if(handleVerify()) {
             try{
-                const {infos} = await axios.post('/auth/register', {username,password})
-                setLoggedIn(username)
-                setId(infos.id)
+                const {infos} = await axios.post(registerRoute, {username,password})
+                if(infos.status === 400){
+                    toast.error(infos.msg,window)
+                }else{
+                    localStorage.setItem('user', JSON.stringify(infos.user))
+                    navigate('/login')
+                }
+
 
             }catch(error){
                 toast.error(error, window)

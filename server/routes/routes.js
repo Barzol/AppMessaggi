@@ -9,11 +9,17 @@ router.get('/', (req, res) => {
     res.json({message: 'root for chat api'})
 })
 
+// Routes Autenticazione
 router.post("/login", authController.login)
 router.post("/register", authController.register)
+router.get('/logout/:id', authController.logout)
+
+//Routes Chats
 router.post("/chats", chatController.getChats)
-//router.get('/messages/:userId', messageController.getMessage)
-// router.get('/messages', messageController.sendMessage)
-// router.get('/???', userController.getChatsFromCookie)
+router.get('/allusers/:id', chatController.getFriends)
+
+// Routes Messaggi
+router.post('/sendmessage/', messageController.sendMessage)
+router.post('/allmessage/',messageController.getAllMessage)
 
 module.exports = router
