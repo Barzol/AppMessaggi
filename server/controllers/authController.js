@@ -35,16 +35,15 @@ module.exports.login = async (req,res) => {
     }
 }
 
-module.exports.logout = async (req,res) => {
-    if(!req.params.id) {
-        return res.json({message: 'UserId richiesto'})
+module.exports.logout = (req, res, next) => {
+    try {
+        if (!req.params.id) return res.json({msg: "UserId richiesto "});
+        isOnline.delete(req.params.id);
+        return res.status(200).send();
+    } catch (err) {
+        res.status(500).json(err)
     }
-    delete req.params.id
-    return res.status(200).send()
-
-    //res.cookie('token', '' ,{sameSite:'none',secure:true}).json('ok')
 }
-
 
 
 

@@ -34,11 +34,14 @@ export default function Login(){
         if(handleVerify()) {
             try{
                 const {username, password} = data
-                const {infos} = await axios.post(loginRoute, {username,password})
+                const infos = await axios.post(loginRoute, {username,password})
+                console.log(infos)
+
                 if(infos.status === false){
                     toast.error(infos.msg, window)
+
                 } else if(infos.status === true) {
-                    console.log('i morti tuoi')
+
                     localStorage.setItem('user', JSON.stringify(infos.user))
                 }
 

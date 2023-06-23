@@ -1,9 +1,11 @@
 import React, { useState }from "react";
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import {IconButton, Menu, MenuItem} from "@mui/material";
+import {useNavigate} from "react-router-dom";
 
 export default function SidebarMenu() {
     const [anchorEl, setAnchorEl] = useState(null);
+    const navigate = useNavigate()
 
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
@@ -12,6 +14,11 @@ export default function SidebarMenu() {
     const handleClose = () => {
         setAnchorEl(null);
     };
+
+    const handleLogOut = async () => {
+        localStorage.clear()
+        navigate('/')
+    }
 
     return (
         <div className="sidebar_header_right">
@@ -26,7 +33,7 @@ export default function SidebarMenu() {
             >
                 <MenuItem onClick={handleClose}>Aggiungi amico</MenuItem>
                 <MenuItem onClick={handleClose}>Rimuovi amico</MenuItem>
-                <MenuItem onClick={handleClose} className="logout">Log out</MenuItem>
+                <MenuItem onClick={handleLogOut} className="logout">Log out</MenuItem>
             </Menu>
         </div>
     );

@@ -30,7 +30,7 @@ module.exports.getAllMessage = async  (req,res) => {
 module.exports.sendMessage = async  (req,res) => {
     try {
         const {sender, receiver, text} = req.body
-        const newMessage = new Message.create({
+        const newMessage = await Message.create({
             sender: sender,
             receiver: receiver,
             text: text

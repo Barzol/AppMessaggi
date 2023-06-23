@@ -50,12 +50,13 @@
     border-radius: 10px;
     background-color: aliceblue;
     margin-bottom: 30px;
-}
 
+}
 .chat_receiver {
     margin-left: auto;
     background-color: #a3ffbd;
 }
+
 
 .chat_name{
     position: absolute;

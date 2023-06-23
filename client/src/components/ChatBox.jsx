@@ -4,7 +4,7 @@ import axios from 'axios'
 import {Avatar, Icon, IconButton} from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import {AttachFile, EmojiEmotions, MoreVert, Send} from "@mui/icons-material";
-import {allMessageRoute} from "../APIroutes";
+import {allMessageRoute, sendMessageRoute} from "../APIroutes";
 import ChatFooter from "./ChatFooter";
 
 export default function ChatBox({currentChat, loggedUser, socket}){
@@ -12,8 +12,21 @@ export default function ChatBox({currentChat, loggedUser, socket}){
     const [sendedMessage, setSendedMessage] = useState('null')
 
 
+    useEffect(()=>{
+        const data = async () => {
+            if(currentChat){
+                const res = await axios.post(allMessageRoute,{
+                    sender: loggedUser._id,
+                    receiver: currentChat._id
+                })
+                setMessageArray(res.data)
+            }
+        }
+        data()
+    },[currentChat])
+
     const handleSend = async (message) =>{
-        await axios.post('auth/sendmessage', {
+        await axios.post(sendMessageRoute, {
             sender: loggedUser._id,
             receiver: currentChat._id,
             text: message
@@ -44,18 +57,7 @@ export default function ChatBox({currentChat, loggedUser, socket}){
         }
     }, []);
 
-    useEffect(()=>{
-        const data = async () => {
-            if(currentChat){
-                const res = await axios.post(allMessageRoute,{
-                    sender: loggedUser._id,
-                    receiver: currentChat._id
-                })
-                setMessageArray(res.data)
-            }
-        }
-        data()
-    },[currentChat])
+
 
 
 
@@ -84,7 +86,7 @@ export default function ChatBox({currentChat, loggedUser, socket}){
 
                 {messageArray.map((message)=>{
                     return (
-                        <div className={`chat_${message.fromSelf ? 'sended':'recieved'}`} >
+                        <div className={`chat_${message.fromSelf ? 'message':'reciever'}`} >
                             {message.message}
                             <span className="chat_timestamp">{new Date().toUTCString()}</span>
                         </div>

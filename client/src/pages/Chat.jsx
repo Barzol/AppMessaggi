@@ -18,14 +18,14 @@ export default function Chat() {
     const [logged, setLogged] = useState(false)
 
 
-    useEffect( ()=> {
+    /* useEffect( ()=> {
         if (!localStorage.getItem('user'))
             navigate('/')
         else{
             setLoggedUser( JSON.parse(localStorage.getItem('user')))
             setLogged(true)
         }
-    },[])
+    },[]) */
 
     useEffect(()=>{
         const getLoggedUser = async () => {
