@@ -14,32 +14,26 @@ export default function Chat() {
     const navigate = useNavigate()
     const [friends, setFriends] = useState([])
     const [loggedUser, setLoggedUser] = useState(undefined)
-    const [currentChat, setCurrentChat] = useState(undefined)
+    const [logId, setLogId] = useState()
+    const [chat, setChat] = useState(undefined)
     const [logged, setLogged] = useState(false)
 
 
-    /* useEffect( ()=> {
-        if (!localStorage.getItem('user'))
-            navigate('/')
-        else{
-            setLoggedUser( JSON.parse(localStorage.getItem('user')))
-            setLogged(true)
-        }
-    },[]) */
+     useEffect( ()=> {
+        const isLogged = async () => {
 
-    useEffect(()=>{
-        const getLoggedUser = async () => {
-            if(loggedUser){
-                const data = await axios.get(`${allUsersRoute}/${loggedUser._id}`)
-                setFriends(data.data)
-            }
-        }
-        getLoggedUser()
-    },[loggedUser])
+            const userObject = await JSON.parse(localStorage.getItem('user'))
+            // console.log(userObject.info)
+            setLoggedUser(userObject.info)
+            const id = userObject.info.id
+            setLogId(id)
+            // console.log(logId)
+            // setLoggedUser( await JSON.parse(localStorage.getItem('user')))
 
-    const handleChatChange = (chat) =>{
-        setCurrentChat(chat);
-    }
+        }
+        isLogged()
+    },[])
+
 
     useEffect(()=>{
         if(loggedUser){
@@ -48,14 +42,28 @@ export default function Chat() {
         }
     },[loggedUser])
 
+    useEffect(()=>{
+        const getLoggedUser = async () => {
+            if(loggedUser){
+
+                const userInfo = await axios.get(`${allUsersRoute}/${loggedUser._id}`)
+                setFriends(userInfo.data)
+            }
+        }
+        getLoggedUser()
+    },[loggedUser])
+
+    const handleChatChange = (chat) =>{
+        setChat(chat);
+    }
 
 
     return (
         <>
             <div className="app">
                 <div className="app_body">
-                    <Sidebar chatChange={handleChatChange} friends={friends} loggedUser={loggedUser} />
-                    <ChatBox currentChat={currentChat} socket={socket} loggedUser={loggedUser}/>
+                    <Sidebar chatChange={handleChatChange} setFriends={setFriends} friends={friends} loggedUser={loggedUser} />
+                    <ChatBox chat={chat} socket={socket} loggedUser={loggedUser}/>
                 </div>
             </div>
         </>

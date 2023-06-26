@@ -7,51 +7,51 @@ import {AttachFile, EmojiEmotions, MoreVert, Send} from "@mui/icons-material";
 import {allMessageRoute, sendMessageRoute} from "../APIroutes";
 import ChatFooter from "./ChatFooter";
 
-export default function ChatBox({currentChat, loggedUser, socket}){
+export default function ChatBox({chat, loggedUser, socket}){
     const [messageArray, setMessageArray] = useState([])
     const [sendedMessage, setSendedMessage] = useState('null')
 
 
     useEffect(()=>{
         const data = async () => {
-            if(currentChat){
+            if(chat){
                 const res = await axios.post(allMessageRoute,{
                     sender: loggedUser._id,
-                    receiver: currentChat._id
+                    receiver: chat._id
                 })
                 setMessageArray(res.data)
             }
         }
         data()
-    },[currentChat])
+    },[chat])
 
     const handleSend = async (message) =>{
         await axios.post(sendMessageRoute, {
             sender: loggedUser._id,
-            receiver: currentChat._id,
+            receiver: chat._id,
             text: message
         })
 
-        socket.current.emit('send-message',{
+        socket.current.emit('sended-message',{
             sender: loggedUser._id,
-            receiver: currentChat._id,
+            receiver: chat._id,
             text: message
         })
 
         const messages = [...messageArray]
         messages.push({
             fromSelf: true,
-            message: message
+            text: message
         })
         setMessageArray(messages)
     }
 
     useEffect(() => {
         if (socket.current) {
-            socket.current.on("msg-recieved", (msg) => {
+            socket.current.on('received-message', (message) => {
                 setSendedMessage({
                     fromSelf: false,
-                    message: msg,
+                    text: message,
                 });
             })
         }
@@ -84,28 +84,15 @@ export default function ChatBox({currentChat, loggedUser, socket}){
             </div>
             <div className="chat_body">
 
-                {messageArray.map((message)=>{
+                {messageArray.map((message, index)=>{
+                    console.log(message.fromSelf)
                     return (
-                        <div className={`chat_${message.fromSelf ? 'message':'reciever'}`} >
-                            {message.message}
+                        <div className={`chat_message ${message.fromSelf ? 'chat_received':''}`} key={index}>
+                            {message.text}
                             <span className="chat_timestamp">{new Date().toUTCString()}</span>
                         </div>
                     )
                 })}
-
-
-                <p className="chat_message chat_receiver">
-                    Message1
-                    <span className="chat_timestamp">{new Date().toUTCString()}</span>
-                </p>
-                <p className="chat_message">
-                    Message2
-                    <span className="chat_timestamp">{new Date().toUTCString()}</span>
-                </p>
-                <p className="chat_message chat_receiver">
-                    Message3
-                    <span className="chat_timestamp">{new Date().toUTCString()}</span>
-                </p>
 
 
             </div>

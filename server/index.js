@@ -1,5 +1,4 @@
 const express = require('express')
-const cookieParser = require('cookie-parser')
 const mongoose = require('mongoose').default
 const cors = require('cors')
 const dotenv = require('dotenv')
@@ -38,14 +37,16 @@ const io = socket(server, {
 })
 
 app.use("/auth", router)
+
 global.isOnline = new Map()
+
 io.on('connection', (socket)=>{
     global.chat = socket;
     socket.on('add-friend',(userId)=>{
         isOnline.set(userId,socket.id)
     })
 
-    socket.on('send-message',(data)=>{
+    socket.on('sended-message',(data)=>{
         const sendSocket = isOnline.get(data.to)
         if(sendSocket) {
             socket.to(sendSocket).emit('received-message', data.message)

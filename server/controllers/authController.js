@@ -39,6 +39,7 @@ module.exports.logout = (req, res, next) => {
     try {
         if (!req.params.id) return res.json({msg: "UserId richiesto "});
         isOnline.delete(req.params.id);
+        localStorage.clear()
         return res.status(200).send();
     } catch (err) {
         res.status(500).json(err)

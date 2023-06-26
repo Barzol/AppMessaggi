@@ -1,15 +1,14 @@
 import React from 'react'
 import "./Sidebar.css"
 import ChatIcon from '@mui/icons-material/Chat';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
-import SearchIcon from '@mui/icons-material/Search';
 import {Avatar, avatar, IconButton} from "@mui/material";
 import {useState, useEffect} from "react";
-import allUsersRoute from '../APIroutes'
 import SidebarMenu from "./SidebarMenu";
+import SidebarSearch from './SidebarSearch'
+import Friends from "./Friends";
 
 
-export default function Sidebar({friends, loggedUser, chatChange}) {
+export default function Sidebar({friends, setFriends, loggedUser, chatChange}) {
     const [userName,setUserName] = useState()
     const [selected, setSelected] = useState()
 
@@ -25,6 +24,10 @@ export default function Sidebar({friends, loggedUser, chatChange}) {
 
     },[loggedUser])
 
+    const handleSearch = async () => {
+
+    }
+
     return (
 
         <div className="sidebar">
@@ -36,7 +39,7 @@ export default function Sidebar({friends, loggedUser, chatChange}) {
                 </div>
                 <div className="sidebar_header_right">
                     <IconButton>
-                        <ChatIcon></ChatIcon>
+                        <ChatIcon ></ChatIcon>
                     </IconButton>
                     <SidebarMenu />
                     {/*<IconButton>
@@ -44,19 +47,15 @@ export default function Sidebar({friends, loggedUser, chatChange}) {
                     </IconButton>*/}
                 </div>
             </div>
-            <div className="sidebar-searc">
-                <div className="sidebar_search_container">
-                    <SearchIcon />
-                    <input type="text" placeholder="cerca o inizia una nuova chat"></input>
-                </div>
-            </div>
+            <SidebarSearch friends = {friends} setFriends={setFriends}/>
             <div className="sidebar_chat">
                 {friends.map((friend,i)=>{
                     return (
                         <div
                             className={` friend ${i === selected ? 'selected' : ''}`}
-                            onClick={()=>changeSelectedChat(i,friend)}>
-                            <h3>{friend.username}</h3>
+                            onClick={()=>changeSelectedChat(i,friend)}
+                            key={i}>
+                            <Friends friend={friend} />
                         </div>
                     )
                 })}

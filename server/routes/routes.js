@@ -12,10 +12,9 @@ router.get('/', (req, res) => {
 // Routes Autenticazione
 router.post("/login", authController.login)
 router.post("/register", authController.register)
-router.post("/logout", authController.logout)
+router.get("/logout", authController.logout)
 
 //Routes Chats
-router.post("/chats", chatController.getChats)
 router.get('/allusers/:id', chatController.getFriends)
 
 // Routes Messaggi

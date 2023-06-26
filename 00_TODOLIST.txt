@@ -2,27 +2,17 @@
 Consiglio iniziale: guardate sempre tramite Ispeziona del browser le varie richieste post e get
 così si può capire cosa non va volta per volta
 
----LOGIN E REGISTER---
-Errore nel Register, dice sempre che l'username è stato già preso
+---LOGIN AND REGISTER---
+Implementare Autenticazione sicura
 
----VISUALIZZAZIONE MESSAGGI e INVIO MESSAGGI--
-Nel backend i controller getAllMessage e sendMessage l'ho già implementati
-Bisogna vedere se funzionano e testare eventuali bug
-All'invio del messaggio esce il seguente errore:
-
-Cannot read properties of undefined (reading '_id')
-TypeError: Cannot read properties of undefined (reading '_id')
-    at handleSend (http://localhost:3000/static/js/bundle.js:208:26)
-    at handleChat (http://localhost:3000/static/js/bundle.js:470:7)
-    at onSubmit (http://localhost:3000/static/js/bundle.js:487:22)
-    at HTMLUnknownElement.callCallback (http://localhost:3000/static/js/bundle.js:30780:18)
-    at Object.invokeGuardedCallbackDev (http://localhost:3000/static/js/bundle.js:30824:20)
-    at invokeGuardedCallback (http://localhost:3000/static/js/bundle.js:30881:35)
-    at invokeGuardedCallbackAndCatchFirstError (http://localhost:3000/static/js/bundle.js:30895:29)
-    at executeDispatch (http://localhost:3000/static/js/bundle.js:35039:7)
-    at processDispatchQueueItemsInOrder (http://localhost:3000/static/js/bundle.js:35065:11)
-    at processDispatchQueue (http://localhost:3000/static/js/bundle.js:35076:9)
-
----AMICI---
+---AMICI--- ??????????? BOH
 Ho implementato le varie API per vedere i contatti ma non per aggiungere e rimuoverli
 La Siderbar è già configurata per mostrare tutti i contatti
+
+---REAL TIME---
+Finire tutto
+
+---CSS---
+Riordinare CSS
+
+---PULIRE IL CODICE---

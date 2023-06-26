@@ -35,14 +35,15 @@ export default function Login(){
             try{
                 const {username, password} = data
                 const infos = await axios.post(loginRoute, {username,password})
-                console.log(infos)
 
-                if(infos.status === false){
-                    toast.error(infos.msg, window)
+                if(infos.status === 400){
+                    toast.error(infos.data.msg, window)
 
-                } else if(infos.status === true) {
+                } else if(infos.status === 200) {
+                    const info = infos.data.user
+                    console.log(info)
+                    localStorage.setItem('user', JSON.stringify({info}))
 
-                    localStorage.setItem('user', JSON.stringify(infos.user))
                 }
 
                 navigate('/chats')

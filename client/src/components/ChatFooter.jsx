@@ -25,11 +25,11 @@ export default function ChatFooter({handleSend}){
                     placeholder="Scrivi un messaggio..." type="text"
                     value={message} onChange={(e)=>{setMessage(e.target.value)}}
                 />
-                <button type="submit">
-                    <IconButton>
+
+                    <IconButton type="submit">
                         <Send />
                     </IconButton>
-                </button>
+
             </form>
         </div>
     )
