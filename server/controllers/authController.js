@@ -3,18 +3,19 @@ const bcrypt = require('bcrypt')
 
 
 module.exports.register = async (req, res) => {
-    const{ username, password } = req.body
+
     try {
-        const hashedPassword = await bcrypt.hash(password, 10);
-        const user = await User.find({ username });
-        if(!user){
-            const newUser = new User({
-                username: username,
+        const hashedPassword = await bcrypt.hash(req.body.password, 10);
+        const userCheck = await User.findOne({ username: req.body.username });
+        if(!userCheck){
+            const user = await User.create({
+                username: req.body.username,
                 password: hashedPassword,
             });
-            res.status(200).json(newUser);
-        }else{
-            res.status(400).json({ status:false, msg: "Username già in uso"});
+
+            res.json({status:true,user});
+        }else if(userCheck){
+            res.status(404).json({ status:false, msg: "Username già in uso"});
         }
     } catch (err) {
         res.status(500).json(err)

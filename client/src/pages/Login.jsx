@@ -7,12 +7,9 @@ import axios from "axios";
 import {loginRoute} from "../APIroutes";
 
 export default function Login(){
-    //const [username, setUsername] = useState('')
-    //const [password, setPassword] = useState('')
     const [data, setData] = useState({
         username:'', password:''
     })
-    //const {setInfo:setLoggedIn, setId} = useContext(UserContext)
     const navigate = useNavigate()
 
     const window = {

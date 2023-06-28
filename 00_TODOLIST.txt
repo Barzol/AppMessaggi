@@ -4,15 +4,31 @@ così si può capire cosa non va volta per volta
 
 ---LOGIN AND REGISTER---
 Implementare Autenticazione sicura
+Sistemare il toasterror
+
 
 ---AMICI--- ??????????? BOH
 Ho implementato le varie API per vedere i contatti ma non per aggiungere e rimuoverli
 La Siderbar è già configurata per mostrare tutti i contatti
 
 ---REAL TIME---
-Finire tutto
+Dovrebbe essere finito ma occorre controllare per vedere se funziona
 
 ---CSS---
 Riordinare CSS
 
 ---PULIRE IL CODICE---
+
+
+Utenti e password per i testi :
+Username: Davide
+Password: ciccio
+
+Username: test1
+Password: 123
+
+Username:
+Password:
+
+Username:
+Password:

@@ -4,22 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c557ad66-9af8-408a-b8c1-6f01ed9f1f1c" name="Changes" comment="GUARDATE LA TO DO LIST">
-      <change afterPath="$PROJECT_DIR$/client/src/components/Friends.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/SidebarSearch.jsx" afterDir="false" />
+    <list default="true" id="c557ad66-9af8-408a-b8c1-6f01ed9f1f1c" name="Changes" comment="GUARDATE LA TO DO LIST pt2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/00_TODOLIST.txt" beforeDir="false" afterPath="$PROJECT_DIR$/00_TODOLIST.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/ChatBox.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ChatBox.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/ChatBox.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ChatBox.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/ChatFooter.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ChatFooter.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Sidebar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Sidebar.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/pages/Chat.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/Chat.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/pages/Login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/Login.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/pages/Register.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/Register.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/controllers/authController.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/authController.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/controllers/chatController.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/chatController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/controllers/messageController.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/messageController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/routes/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/routes.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,7 +115,8 @@
       <workItem from="1687422131425" duration="20037000" />
       <workItem from="1687513131917" duration="5995000" />
       <workItem from="1687519365705" duration="23109000" />
-      <workItem from="1687776929415" duration="18356000" />
+      <workItem from="1687776929415" duration="18398000" />
+      <workItem from="1687962032848" duration="5651000" />
     </task>
     <task id="LOCAL-00004" summary="Merge remote-tracking branch 'origin/main' into default">
       <created>1686750938808</created>
@@ -233,7 +226,15 @@
       <option name="project" value="LOCAL" />
       <updated>1687541767043</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="GUARDATE LA TO DO LIST pt2">
+      <option name="closed" value="true" />
+      <created>1687798798922</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1687798798922</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -261,6 +262,7 @@
     <MESSAGE value="Pulizia frontend, cercando di far funzionare il backend" />
     <MESSAGE value="Sistemato" />
     <MESSAGE value="GUARDATE LA TO DO LIST" />
-    <option name="LAST_COMMIT_MESSAGE" value="GUARDATE LA TO DO LIST" />
+    <MESSAGE value="GUARDATE LA TO DO LIST pt2" />
+    <option name="LAST_COMMIT_MESSAGE" value="GUARDATE LA TO DO LIST pt2" />
   </component>
 </project>

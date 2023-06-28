@@ -23,8 +23,8 @@ export default function Chat() {
         const isLogged = async () => {
 
             const userObject = await JSON.parse(localStorage.getItem('user'))
-            // console.log(userObject.info)
             setLoggedUser(userObject.info)
+
             const id = userObject.info.id
             setLogId(id)
             // console.log(logId)
@@ -35,7 +35,7 @@ export default function Chat() {
     },[])
 
 
-    useEffect(()=>{
+    useEffect( ()=>{
         if(loggedUser){
             socket.current = io(host)
             socket.current.emit('add-user', loggedUser._id)
@@ -45,8 +45,8 @@ export default function Chat() {
     useEffect(()=>{
         const getLoggedUser = async () => {
             if(loggedUser){
-
                 const userInfo = await axios.get(`${allUsersRoute}/${loggedUser._id}`)
+
                 setFriends(userInfo.data)
             }
         }

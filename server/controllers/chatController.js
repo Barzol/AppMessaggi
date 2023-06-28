@@ -9,8 +9,12 @@ module.exports.getFriends = async  (req,res) => {
             'username',
             '_id'
         ])
+        if(friends === 0){
+            res.status(200).json('Nessun altro utente è registrato')
+        }else{
+            res.status(200).json(friends)
+        }
 
-        res.status(200).json(friends)
     }catch(error){
         res.status(500).json(error)
     }
