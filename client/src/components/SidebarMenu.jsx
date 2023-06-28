@@ -31,8 +31,8 @@ export default function SidebarMenu() {
                 open={Boolean(anchorEl)}
                 onClose={handleClose}
             >
-                <MenuItem onClick={handleClose}>Aggiungi amico</MenuItem>
-                <MenuItem onClick={handleClose}>Rimuovi amico</MenuItem>
+                <MenuItem onClick={handleClose} className="add">Aggiungi amico</MenuItem>
+                <MenuItem onClick={handleClose} className="remove">Rimuovi amico</MenuItem>
                 <MenuItem onClick={handleLogOut} className="logout">Log out</MenuItem>
             </Menu>
         </div>

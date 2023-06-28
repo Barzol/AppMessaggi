@@ -6,12 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="c557ad66-9af8-408a-b8c1-6f01ed9f1f1c" name="Changes" comment="GUARDATE LA TO DO LIST pt2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/00_TODOLIST.txt" beforeDir="false" afterPath="$PROJECT_DIR$/00_TODOLIST.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/pages/Chat.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/Chat.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/pages/Login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/Login.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/pages/Register.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/Register.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/controllers/authController.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/authController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/controllers/chatController.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/chatController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/ChatBox.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ChatBox.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Friends.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Friends.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Sidebar.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Sidebar.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/SidebarChat.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/SidebarChat.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/SidebarMenu.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/SidebarMenu.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

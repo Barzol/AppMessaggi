@@ -7,11 +7,11 @@ import {AddCircle} from "@mui/icons-material";
 export default function Friends({friend}){
 
     return (
-        <div className='sidebar_chat'>
+        <div className='sidebar_chat_friends'>
             <Avatar/>
 
             <div className='sidebarChat_info'>
-                <h3>{friend.username}</h3>
+                <h2>{friend.username}</h2>
             </div>
 
         </div>
