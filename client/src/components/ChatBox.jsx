@@ -89,7 +89,7 @@ export default function ChatBox({chat, loggedUser, socket}){
                     return (
                         <div className={`chat_message ${message.fromSelf ? 'chat_received':''}`} key={index}>
                             {message.text}
-                            <span className="chat_timestamp">{new Date().toUTCString()}</span>
+                            <span className="chat_timestamp">{new Date().toLocaleTimeString()}</span>
                         </div>
                     )
                 })}
