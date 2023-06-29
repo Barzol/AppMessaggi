@@ -15,11 +15,11 @@ export default function SidebarMenu() {
         setAnchorEl(null);
     };
     const handleAdd = async () => {
-        navigate('/')
+        navigate('/AddFriend')
     }
 
     const handleRemove = async () => {
-        navigate('/')
+        navigate('/RemoveFriend')
     }
 
     const handleLogOut = async () => {

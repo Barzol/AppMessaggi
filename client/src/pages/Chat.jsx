@@ -29,7 +29,6 @@ export default function Chat() {
             setLogId(id)
             // console.log(logId)
             // setLoggedUser( await JSON.parse(localStorage.getItem('user')))
-
         }
         isLogged()
     },[])

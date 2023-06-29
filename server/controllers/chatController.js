@@ -20,13 +20,6 @@ module.exports.getFriends = async  (req,res) => {
     }
 }
 
-/*module.exports.addFriend = async  (req,res) => {
-
-}
-module.exports.deleteFriend = async  (req,res) => {
-
-}*/
-
 // Aggiungi un amico
 module.exports.addFriend = async (req, res) => {
     try {
@@ -91,8 +84,8 @@ module.exports.removeFriend = async (req, res) => {
         console.error(error);
         res.status(500).json({ error: 'Si è verificato un errore durante la rimozione dell\'amico' });
     }
-};
 
+};
 
 
 

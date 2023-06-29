@@ -4,11 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c557ad66-9af8-408a-b8c1-6f01ed9f1f1c" name="Changes" comment="backend per l aggiunta degli amici e della loro rimozioni finita credo?">
+    <list default="true" id="c557ad66-9af8-408a-b8c1-6f01ed9f1f1c" name="Changes" comment="aggiunto un array al modello utente e modificato l orario che veniva visualizzato nei messaggi">
+      <change afterPath="$PROJECT_DIR$/client/src/pages/Friendpage.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/00_TODOLIST.txt" beforeDir="false" afterPath="$PROJECT_DIR$/00_TODOLIST.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Friends.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Friends.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/Sidebar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Sidebar.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/SidebarMenu.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/SidebarMenu.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/pages/AddFriend.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/AddFriend.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/pages/Chat.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/Chat.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/pages/Register.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/Register.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/pages/RemoveFriend.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/RemoveFriend.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/controllers/authController.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/authController.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/controllers/chatController.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/chatController.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/models/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/models/users.js" afterDir="false" />
@@ -73,16 +78,6 @@
       <recent name="C:\Users\david\AppMessaggi" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration name="index.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/server/index.js" working-dir="$PROJECT_DIR$/server">
-      <method v="2" />
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Node.js.index.js" />
-      </list>
-    </recent_temporary>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task id="LOCAL-00001" summary="Ce la facciamo?">
@@ -128,8 +123,6 @@
       <workItem from="1687776929415" duration="18398000" />
       <workItem from="1687962032848" duration="5651000" />
       <workItem from="1687971157225" duration="1587000" />
-      <workItem from="1688036786492" duration="193000" />
-      <workItem from="1688037504935" duration="15000" />
     </task>
     <task id="LOCAL-00004" summary="Merge remote-tracking branch 'origin/main' into default">
       <created>1686750938808</created>
@@ -254,15 +247,7 @@
       <option name="project" value="LOCAL" />
       <updated>1687970199788</updated>
     </task>
-    <task id="LOCAL-00021" summary="backend per l aggiunta degli amici e della loro rimozioni finita credo?">
-      <option name="closed" value="true" />
-      <created>1688031599060</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1688031599060</updated>
-    </task>
-    <option name="localTasksCounter" value="22" />
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -292,18 +277,6 @@
     <MESSAGE value="GUARDATE LA TO DO LIST" />
     <MESSAGE value="GUARDATE LA TO DO LIST pt2" />
     <MESSAGE value="aggiunto un array al modello utente e modificato l orario che veniva visualizzato nei messaggi" />
-    <MESSAGE value="backend per l aggiunta degli amici e della loro rimozioni finita credo?" />
-    <option name="LAST_COMMIT_MESSAGE" value="backend per l aggiunta degli amici e della loro rimozioni finita credo?" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/client/src/pages/Chat.jsx</url>
-          <line>14</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <option name="LAST_COMMIT_MESSAGE" value="aggiunto un array al modello utente e modificato l orario che veniva visualizzato nei messaggi" />
   </component>
 </project>

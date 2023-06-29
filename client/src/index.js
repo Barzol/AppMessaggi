@@ -4,6 +4,8 @@ import App from './App.js';
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import AddFriend from "./pages/AddFriend"
+import RemoveFriend from "./pages/RemoveFriend"
 import axios from 'axios'
 import {UserContextProvider} from "./components/UserContext";
 
@@ -17,6 +19,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
                 <Route path="/" element={<Login />}/>
                 <Route path="/register" element={<Register />}/>
                 <Route path="/chats" element={<App />}/>
+                <Routes path="/addFriend" element={<AddFriend />}/>
             </Routes>
 
     </BrowserRouter>

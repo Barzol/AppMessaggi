@@ -61,6 +61,3 @@ export default function Sidebar({friends, setFriends, loggedUser, chatChange}) {
         </div>
     );
 }
-
-
-
