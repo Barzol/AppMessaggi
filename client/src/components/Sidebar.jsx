@@ -42,9 +42,7 @@ export default function Sidebar({friends, setFriends, loggedUser, chatChange}) {
                         <ChatIcon ></ChatIcon>
                     </IconButton>
                     <SidebarMenu />
-                    {/*<IconButton>
-                        <MoreVertIcon></MoreVertIcon>
-                    </IconButton>*/}
+
                 </div>
             </div>
             <SidebarSearch friends = {friends} setFriends={setFriends}/>

@@ -27,8 +27,8 @@ Password: ciccio
 Username: test1
 Password: 123
 
-Username:
-Password:
+Username: Bello
+Password: Fresco
 
 Username:
 Password:

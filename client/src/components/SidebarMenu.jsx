@@ -14,8 +14,16 @@ export default function SidebarMenu() {
     const handleClose = () => {
         setAnchorEl(null);
     };
+    const handleAdd = async () => {
+        navigate('/')
+    }
+
+    const handleRemove = async () => {
+        navigate('/')
+    }
 
     const handleLogOut = async () => {
+        //funzione per pulizia delle cache del browser
         localStorage.clear()
         navigate('/')
     }
@@ -31,8 +39,8 @@ export default function SidebarMenu() {
                 open={Boolean(anchorEl)}
                 onClose={handleClose}
             >
-                <MenuItem onClick={handleClose} className="add">Aggiungi amico</MenuItem>
-                <MenuItem onClick={handleClose} className="remove">Rimuovi amico</MenuItem>
+                <MenuItem onClick={handleAdd} className="add">Aggiungi amico</MenuItem>
+                <MenuItem onClick={handleRemove} className="remove">Rimuovi amico</MenuItem>
                 <MenuItem onClick={handleLogOut} className="logout">Log out</MenuItem>
             </Menu>
         </div>
