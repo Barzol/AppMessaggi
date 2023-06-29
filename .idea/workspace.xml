@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c557ad66-9af8-408a-b8c1-6f01ed9f1f1c" name="Changes" comment="aggiunto un array al modello utente e modificato l orario che veniva visualizzato nei messaggi">
+    <list default="true" id="c557ad66-9af8-408a-b8c1-6f01ed9f1f1c" name="Changes" comment="sistemato (?)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/ChatBox.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ChatBox.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Friends.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Friends.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Sidebar.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Sidebar.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/SidebarSearch.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/SidebarSearch.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,7 +25,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -112,7 +114,7 @@
       <workItem from="1687519365705" duration="23109000" />
       <workItem from="1687776929415" duration="18398000" />
       <workItem from="1687962032848" duration="5651000" />
-      <workItem from="1687971157225" duration="1587000" />
+      <workItem from="1688029251925" duration="1643000" />
     </task>
     <task id="LOCAL-00004" summary="Merge remote-tracking branch 'origin/main' into default">
       <created>1686750938808</created>
@@ -230,12 +232,13 @@
       <option name="project" value="LOCAL" />
       <updated>1687798798922</updated>
     </task>
-    <task id="LOCAL-00020" summary="aggiunto un array al modello utente e modificato l orario che veniva visualizzato nei messaggi">
-      <created>1687970199788</created>
+    <task id="LOCAL-00020" summary="sistemato (?)">
+      <option name="closed" value="true" />
+      <created>1687969928188</created>
       <option name="number" value="00020" />
       <option name="presentableId" value="LOCAL-00020" />
       <option name="project" value="LOCAL" />
-      <updated>1687970199788</updated>
+      <updated>1687969928188</updated>
     </task>
     <option name="localTasksCounter" value="21" />
     <servers />
@@ -266,7 +269,7 @@
     <MESSAGE value="Sistemato" />
     <MESSAGE value="GUARDATE LA TO DO LIST" />
     <MESSAGE value="GUARDATE LA TO DO LIST pt2" />
-    <MESSAGE value="aggiunto un array al modello utente e modificato l orario che veniva visualizzato nei messaggi" />
-    <option name="LAST_COMMIT_MESSAGE" value="aggiunto un array al modello utente e modificato l orario che veniva visualizzato nei messaggi" />
+    <MESSAGE value="sistemato (?)" />
+    <option name="LAST_COMMIT_MESSAGE" value="sistemato (?)" />
   </component>
 </project>

@@ -19,7 +19,7 @@ export default function SearchBar({ friends, setFriends }) {
             <div className="sidebar_search_container">
                 <SearchIcon />
                 <input type="text" placeholder="cerca o inizia una nuova chat"
-                       value={input}
+                       /*value = {input}*/
                        onChange={e=>handleChange(e)}
                 ></input>
             </div>
