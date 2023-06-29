@@ -67,7 +67,9 @@ export default function ChatBox({chat, loggedUser, socket}){
                 <Avatar />
                 <div className="chat_header_info">
                     <h3>
+                        <h3>
 
+                        </h3>
                     </h3>
                 </div>
                 <div className="chat_header_right">

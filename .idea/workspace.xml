@@ -4,14 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c557ad66-9af8-408a-b8c1-6f01ed9f1f1c" name="Changes" comment="GUARDATE LA TO DO LIST pt2">
+    <list default="true" id="c557ad66-9af8-408a-b8c1-6f01ed9f1f1c" name="Changes" comment="aggiunto un array al modello utente e modificato l orario che veniva visualizzato nei messaggi">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/00_TODOLIST.txt" beforeDir="false" afterPath="$PROJECT_DIR$/00_TODOLIST.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/pages/Chat.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/Chat.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/pages/Login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/Login.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/pages/Register.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/Register.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/controllers/authController.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/authController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/controllers/chatController.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/chatController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/ChatBox.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ChatBox.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,6 +112,7 @@
       <workItem from="1687519365705" duration="23109000" />
       <workItem from="1687776929415" duration="18398000" />
       <workItem from="1687962032848" duration="5651000" />
+      <workItem from="1687971157225" duration="1587000" />
     </task>
     <task id="LOCAL-00004" summary="Merge remote-tracking branch 'origin/main' into default">
       <created>1686750938808</created>
@@ -234,7 +230,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687798798922</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="aggiunto un array al modello utente e modificato l orario che veniva visualizzato nei messaggi">
+      <created>1687970199788</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1687970199788</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -263,6 +266,7 @@
     <MESSAGE value="Sistemato" />
     <MESSAGE value="GUARDATE LA TO DO LIST" />
     <MESSAGE value="GUARDATE LA TO DO LIST pt2" />
-    <option name="LAST_COMMIT_MESSAGE" value="GUARDATE LA TO DO LIST pt2" />
+    <MESSAGE value="aggiunto un array al modello utente e modificato l orario che veniva visualizzato nei messaggi" />
+    <option name="LAST_COMMIT_MESSAGE" value="aggiunto un array al modello utente e modificato l orario che veniva visualizzato nei messaggi" />
   </component>
 </project>

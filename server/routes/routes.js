@@ -16,6 +16,8 @@ router.get("/logout", authController.logout)
 
 //Routes Chats
 router.get('/allusers/:id', chatController.getFriends)
+router.post('/addFriend', UserController.addFriend)
+router.post('/removeFriend', UserController.removeFriend)
 
 // Routes Messaggi
 router.post('/sendmessage/', messageController.sendMessage)
