@@ -19,7 +19,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
                 <Route path="/" element={<Login />}/>
                 <Route path="/register" element={<Register />}/>
                 <Route path="/chats" element={<App />}/>
-                <Routes path="/addFriend" element={<AddFriend />}/>
+                <Route path="/addFriend" element={<AddFriend />}/>
+                <Route path="/removeFriend" element={<RemoveFriend />} />
             </Routes>
 
     </BrowserRouter>

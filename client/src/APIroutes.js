@@ -12,3 +12,7 @@ export const allUsersRoute = `${host}/auth/allusers`
 // Routes Messaggi
 export const sendMessageRoute = `${host}/auth/sendmessage`
 export const allMessageRoute = `${host}/auth/allmessage`
+
+// Routes friend
+export const addFriendRoute = `${host}/auth/addFriend`
+//export const removeFriendRoute = `${host}/auth/removeFriend`

@@ -5,17 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c557ad66-9af8-408a-b8c1-6f01ed9f1f1c" name="Changes" comment="aggiunto un array al modello utente e modificato l orario che veniva visualizzato nei messaggi">
-      <change afterPath="$PROJECT_DIR$/client/src/pages/Friendpage.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Sidebar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Sidebar.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/APIroutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/APIroutes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/SidebarMenu.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/SidebarMenu.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/pages/AddFriend.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/AddFriend.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/pages/Chat.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/Chat.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/pages/Register.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/Register.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/pages/RemoveFriend.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/RemoveFriend.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/controllers/authController.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/authController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/controllers/chatController.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/chatController.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/models/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/models/users.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -258,7 +254,15 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ID_WIDTH">
+                <map>
+                  <entry key="Table.Default.Author.ColumnIdWidth" value="70" />
+                  <entry key="Table.Default.Date.ColumnIdWidth" value="73" />
+                  <entry key="Table.Space.CommitStatus.ColumnIdWidth" value="72" />
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
